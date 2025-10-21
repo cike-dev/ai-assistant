@@ -1,8 +1,11 @@
 slots:
   support_type:
-    type: text
+    type: categorical
+    values:
+      - academic
+      - career
     mappings:
-      - type: from_llm
+      - type: controlled
 
 responses:
   utter_ask_support_type:

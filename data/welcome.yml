@@ -11,7 +11,7 @@ flows:
           - if: slots.support_type == "career"
             then: link_to_career
           - else: fallback_response
-          # - else: fallback_chitchat
+          # - else: fallback_chitchat 
 
       - id: link_to_academic
         link: uni_academic_support  # Links to existing academic flow
