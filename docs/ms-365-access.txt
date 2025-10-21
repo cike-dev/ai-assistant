@@ -1,0 +1,55 @@
+Microsoft 365 for Students and Staff
+
+Microsoft 365 applications, including Outlook for email and Calendar, Word for documents, OneDrive for storing and sharing documents, and Teams for chat and video, are available free to all students during their studies and to staff using University devices. New students should not purchase Microsoft 365 as it is provided at no cost.
+
+Installation and Access
+* Staff have the full suite of apps installed on University devices.
+* Students can install Microsoft 365 apps on up to 5 personal devices by logging into https://office.com with their University email and selecting 'Install Office' then 'Office 365 apps'.
+* Online versions are accessible via https://office.com using University email and password.
+* For mobile devices, install individual apps from the usual app store; staff need to enroll personal devices.
+
+Training and Resources: The Microsoft 365 training website offers resources like quick starts, video walk-throughs, and guidance for staff and students at https://support.microsoft.com/en-us/training.
+
+Accessibility: Microsoft 365 includes features to improve accessibility, with a dedicated resource centre at https://support.microsoft.com/en-us/office/office-accessibility-center-resources-for-people-with-disabilities-ecab0fcf-d143-4fe8-a2ff-6cd596bddc6d?wt.mc_id=otc_home
+
+Post-Graduation Access: Students retain access to their University Microsoft 365 account for 3 months after graduation, after which access is withdrawn. Notifications will be sent to move any necessary work or emails.
+
+Getting Started
+To use Office 365:
+- Sign in at https://www.office.com/?wt.mc_id=OTC_SIXSTEPS with University email and password.
+- Create a file by selecting 'Start new' and choosing the file type.
+- Share files by selecting 'Share' in apps like Word, entering a name or email, and adjusting permissions if needed.
+
+Files created in Office Online apps automatically save to OneDrive for sharing and collaboration across devices.
+
+Multifactor Authentication (MFA) for Student Support
+Multifactor authentication (MFA) enhances security for University Microsoft 365 accounts (email, calendar, Teams), myWLV app, and Canvas by requiring additional verification to prove user identity. This is especially important if a password is stolen or lost, as MFA helps protect account information.
+
+MFA typically operates unnoticed on standard devices but activates under certain conditions:
+- When signing in from an unknown device/browser or unusual location.
+- After changing your password.
+- Following operating system changes on your device.
+
+Important Note: MFA setup is required to access your timetable in the myWLV app.
+
+MFA serves two purposes:
+1. Protects your account with additional verification.
+2. Provides a password reset mechanism if you get locked out.
+
+How to Set Up MFA
+When first signing into email or accessing Canvas/myWLV, a message will prompt for "more information required" with a "next" option. Setup can be done via:
+
+a. Authenticator App:
+- Install the Microsoft Authenticator app using on-screen prompts, requiring your University email, password, and internet connection.
+- After setup, authentication involves number matching on screen.
+- For app installation details, refer to provided documentation.
+
+Text or Phone Call:
+- Add a working mobile phone number via on-screen prompts, requiring your University email, password, and mobile network connection.
+- Confirm the number if recently added for password reset.
+
+Changing Verification Method
+You can review or change your authentication method by visiting the security settings. Options include call, text code, authenticator app notification, or using a personal email. Add a backup phone number for updating your primary mobile number if needed.
+
+Using Outlook App
+If not using the Authenticator app and Outlook is installed on your mobile, you can use the Outlook app for MFA authentication. For help, contact the support line provided.

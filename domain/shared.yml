@@ -1,0 +1,17 @@
+slots:
+  user_query:
+    type: text
+    mappings:
+      - type: from_llm
+
+ 
+
+responses:
+  utter_ask_user_query:
+    - text: "What academic support do you need help with?"
+    - text: "Need help with school or career?"
+    
+  utter_acknowledge_query:
+    - text: "Thanks for sharing. Let me find the best way to assist you."
+
+        

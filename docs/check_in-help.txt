@@ -1,0 +1,30 @@
+Student Check-In System
+Student Check-In is an online system for all students at the University of Wolverhampton to register attendance at timetabled learning activities. It is web-based and accessible via phone, tablet, laptop, or PC through the MyWLV app or at myattendance.wlv.ac.uk. Students must use it for all scheduled teaching activities, both online and on campus. Attendance is crucial for studies, but the University supports students who cannot attend due to illness or unforeseen circumstances. Absences can be reported through the system. It is important to record attendance only for sessions attended, as fraudulent recording may lead to disciplinary actions under the Student Code of Conduct. For difficulties preventing attendance, contact ASK@WLV for support.
+
+Using Student Check-In
+1. To register attendance:
+- Access via MyWLV app or myattendance.wlv.ac.uk.
+- Find the session and click 'Present'. Sessions appear just before they start.
+- Enter the six-digit code provided by the lecturer and confirm.
+
+2. To report absence:
+- Select 'Absence' in the left-hand menu.
+- Choose a reason from the drop-down menu, add a note, and continue.
+- Select the date range or 'All day', then continue.
+- Confirm compliance with absence policy and submit.
+
+3. To View Attendance Reports:
+Use the left-hand menu to select 'Attendance' and 'By week' for mobile or desktop view.
+
+Essentially,
+The system records attendance for undergraduate and postgraduate taught students. It helps personal tutors and academic coaches identify students needing support for early intervention. Attendance registration is compulsory as per University policy. Students can view their attendance records since starting the course using the system. For mistakes in records, contact ASK@WLV. If a session is cancelled, it will be removed from the timetable. For more information, see the Student Engagement Policy.
+
+Frequently Asked Questions:
+- The system captures attendance data for proactive support.
+- Notify lecturers if unable to record attendance; they can guide adding to attendee lists.
+- Use the system to notify course teams of absences.
+- Student Check-In is the only system needed for attendance recording.
+- Personal tutor or academic coach meetings offer support and guidance.
+
+Contacts:
+For support with attendance record issues, e-mail: ASK@WLV 

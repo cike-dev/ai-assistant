@@ -1,0 +1,39 @@
+Student Support and Counseling Information
+
+IT Account and Access
+Staff and students receive a user ID number and University email address (@wlv.ac.uk) for accessing systems, except e:Vision, which requires a staff or student ID number and password. Students create a password during enrolment; the IT account lasts for the duration of studies. Password updates can be done via https://sso.wlv.ac.uk/adfs/portal/updatepassword/ using the University email and current password. For account lockouts, use https://passwordreset.microsoftonline.com/ with MFA phone.
+
+Microsoft 365: Students get free Microsoft 365 for email, file storage/sharing, and collaboration via chat and video, including 5TB OneDrive storage and MS 365 applications for personal devices.
+
+Multifactor Authentication (MFA) - MFA adds security to Microsoft 365, Canvas, and myWLV app, requiring setup via Authenticator app or mobile phone number. Carry MFA phone on or off campus for access.
+
+Canvas (Virtual Learning Environment) - Canvas is the VLE; help available via https://www.wlv.ac.uk/its/self-help/canvas/ or the 'help' button in Canvas.
+
+myWLV - Students can access timetables at http://my.wlv.ac.uk using University email and password, after setting up MFA.
+
+Microsoft Teams: Used for video meetings, online teaching, file sharing, and chat; access via https://office.com or install the application. Teachers use Teams for invitations to online sessions.
+
+Student Check In: Digital attendance register for teaching sessions; more information at https://www.wlv.ac.uk/its/digital-campus/student-check-in/
+
+Software: Software available on and off campus; details at https://www.wlv.ac.uk/its/self-help/software/ and Software Catalogue for assistive tools.
+
+Laptop and WiFi Advice: Students need regular computer and internet access; laptop loan scheme available for up to 4 weeks, book via https://www.wlv.ac.uk/lib/info/laptop-loans/
+Minimum requirements: Windows 10/11 or OS X, browsers like Firefox, Chrome, Safari. 
+Tips for home network optimization included, such as moving closer to router, reducing streaming resolution.
+
+Anti-Virus Software
+Windows 10/11 laptops have Windows Defender; ensure automatic updates are enabled.
+
+WiFi: Connect devices to eduroam using University IT account for campus and global access, after moving from guest network 'wolfradiolan'.
+
+Data Safety: Maintain strong passwords and be aware of phishing; guidance at https://www.wlv.ac.uk/its/self-help/it-account-password/
+
+Print, Scan, Copy
+Multi-functional devices available on campuses for printing, copying, scanning; details at https://www.wlv.ac.uk/its/self-help/how-to-print-scan-and-copy/.
+
+Support
+Digital Services team available for help; contact via phone or self-service portal.
+
+Contacts:
+Phone: 01902 32 2000
+Self-service portal: https://wolvs.service-now.com/it_portal

@@ -1,0 +1,24 @@
+Laptop Loan Information for Students
+
+Short Loan Laptops
+At each of the 3 campus libraries, students can borrow a Windows laptop for up to 6 hours using Lapsafe cabinets. Laptops are provided fully charged, allowing use in any preferred study location on campus, provided they are returned to the library by the end of the loan period or before closing, whichever comes first. To borrow, students need a Campus ID card and a clean Library record.
+
+Borrowing Process:
+- Touch ‘borrow’ on the terminal screen.
+- Touch your Campus ID card on the reader.
+- Read and accept the loan terms; full terms are emailed and available for download.
+- A laptop and locker ID will be allocated, indicated by a lit locker.
+- Touch your Campus ID card on the reader by the allocated locker to unlock and retrieve the laptop.
+
+Returning Process:
+- Touch the ‘return’ button on the terminal screen.
+- Touch your Campus ID card on the reader.
+- Follow the screen to the indicated return locker, which will light up.
+- Open the locker, plug the charging cable back into the laptop, and close the door to complete the return.
+Note: Failure to connect the charging cable and fully close the door may result in fines.
+
+A limited number of laptops are available for a 30-day long loan; inquire at the library helpdesk for availability. New full-time UK undergraduate students may be eligible for a WLV Wallet bursary to help purchase a laptop.
+
+Terms and Conditions: The laptop loan scheme is for registered undergraduate, postgraduate, and PhD students. Laptops can be borrowed for up to 30 days, with only one laptop allowed at a time. They must be used for academic purposes and not loaned to others. Students are responsible for the laptop's safety and security. Late returns incur administrative fees up to £40, and failure to return or damage may result in charges up to the laptop's full value
+
+For more information on laptop loans pls visit: https://www.wlv.ac.uk/lib/info/laptop-loans/

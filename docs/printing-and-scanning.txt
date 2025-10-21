@@ -1,0 +1,51 @@
+Printing, Scanning, and Copying Services
+
+The University provides Multi-Function Devices (MFDs) across all campuses for printing, scanning, and copying. Students need their University ID card and sufficient credit in their print account to use these services. The University also offers Digital Print Services (DPS) for additional printing needs.
+
+Using MFDs
+MFDs support printing, scanning, and copying using the "Follow You Printing" system. To use an MFD, students must:
+- Have their University ID card.
+- Ensure enough credit in their print account.
+
+First-time users need to register their ID card at the MFD using the card reader; subsequent uses require logging in by holding the card over the reader or manual login via the display screen. Printing and copying are charged; scanning is free from 1st January 2024.
+
+Digital Print Services (DPS)
+Located in MKb, off Molineux Street, City Campus, at the rear of the George Wallis (MK) Building. Offers printing and binding services, as well as digital print and finishing services at competitive prices for students.
+
+Adding Credit to Print Account
+Access the web payment gateway at https://papercut.wlv.ac.uk/user to add credit (minimum £5, maximum £100) using University IT login and password.
+
+Checking Print Account Balance
+Check balance via the payment gateway at https://secure.wlv.ac.uk/printcredit// or at the MFD after logging in.
+
+Help with Issues
+For MFD issues in libraries, contact library staff for paper jams or toner/paper replacement.
+For MFDs outside libraries, contact the Key Contact listed on the notice next to the MFD.
+For further assistance, contact the IT Service Desk:
+
+Provide IT username, problem details, location, and MFD number.
+Contact: extension 2000 (01902 32 2000) during opening hours.
+
+Refund Policy
+Request refunds for print credit above £1 by emailing Incomesection@wlv.ac.uk; refunds are made to the original payment card, excluding allocated credit.
+
+Scanning and Copying Details
+Scanning uses "Scan to me" system, charged at 1p per scan (free from 1st January 2024).
+Copying requires sufficient print account credit; follow login and settings procedures similar to scanning.
+Both services require awareness of Copyright Regulations; more information at http://www.wlv.ac.uk/lib/info/copyright/ or the Copyright Licensing Agency website at https://www.cla.co.uk/.
+
+New MFD Printing Prices (Effective 1st January 2024)
+Type of Print              MFDs New Price 
+A4 Mono - Single Sided      5p
+A4 Mono - Double Sided      9p
+A3 Mono - Single Sided      10p
+A3 Mono - Double Sided      19p
+A4 Colour - Single Sided    19p
+A4 Colour - Double Sided    37p
+A3 Colour - Single Sided    38p
+A3 Colour - Double Sided    75p 
+
+Contacts:
+For print credit refunds, e-mail: Incomesection@wlv.ac.uk 
+Phone: 01902 322000 (IT Service Desk, extension 2000)
+Location: Digital Print Services at MKb, off Molineux Street, City Campus, rear of George Wallis (MK) Building.

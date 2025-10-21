@@ -1,0 +1,37 @@
+Accessing Canvas:
+Canvas can be accessed through the Student Portal (myWLV, http://my.wlv.ac.uk/) for on-campus undergraduate, postgraduate, and postgraduate research students. Other means include Canvas desktop icon on University Windows computers OR 'Canvas' app on Apple (iOS) and Android mobile devices.
+
+How to Log in to Canvas:
+Log in using University IT credentials (email address or user ID and password) with Multifactor Authentication (MFA) set up. More information at https://www.wlv.ac.uk/its/essentials/mfa/
+Complete enrolment and module registration in e:Vision to access Canvas; may take up to 24 hours after enrolment.
+
+For support for Enrolment and Module Registration Issues, Contact ASK@WLV for issues with enrolment or module registration. Drop in at:
+- City Campus: Ambika Paul Building, next to Harrison Library, Monday to Friday, 10 am to 5 pm.
+- Walsall Campus: Foyer area of Performance Hub, Monday to Friday, 10 am to 5 pm.
+- Telford Campus: Ground floor of Darby Building, Monday to Friday, 10 am to 5 pm 
+Telephone: 01902 518518, Monday to Friday, 10 am to 5 pm.
+
+Canvas Login Issues:
+For problems signing into Canvas or forgotten passwords, visit https://www.wlv.ac.uk/its/self-help/it-account-password/ 
+
+OR:
+Dial 2000 from an internal University phone.
+Phone +44 (0) 1902 32 2000 from a mobile.
+
+Canvas Support: Once logged into Canvas, access 24/7/365 support via the 'Help' link:
+- Canvas Self-Help Guides for features and functionality.
+- Report a Problem to the Canvas Support Team.
+- Live Chat with Canvas Support Team.
+- Support Hotline via UK Freephone or international number (charged at local rate).
+
+Additional Resources for Students
+Introduction videos for new, returning, and partner/distance learning students available.
+Panopto usage information in the Student Help and Guidance course at https://canvas.wlv.ac.uk/courses/9339/pages/how-do-i-use-panopto
+
+for more info on canvas and related queries, please visit https://www.wlv.ac.uk/its/self-help/canvas/
+
+Contacts:
+Email: ASK@WLV
+Phone: 01902 518518 (Monday to Friday, 10 am to 5 pm)
+Phone: +44 (0) 1902 32 2000 (for login issues)
+Internal phone: 2000 (for login issues)

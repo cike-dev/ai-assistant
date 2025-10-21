@@ -1,0 +1,48 @@
+version: "3.7"
+
+slots: 
+  sch_option:
+    type: text
+    mappings:
+      - type: from_llm
+
+  rag_result_found:
+    type: bool
+    mappings:
+      - type: controlled
+
+# ======================================= #
+# ======================================= #
+# ======================================= #
+
+responses:
+  utter_academic_selected:
+    - text: "Great! I'm here to help with your academic needs. You can ask me about courses, study tips, academic policies, or connect with an academic advisor. What would you like to know?"
+
+  # utter_ask_follow_up:
+  utter_ask_sch_option:
+    - text: "I've provided the information above. Did that answer your question? You can ask for more detail, or if you prefer, I can connect you with an academic advisor."
+      buttons:
+        - title: "I need more detail"
+          payload: '/SetSlots(sch_option="more_detail")'
+        - title: "Connect me with an Advisor"
+          payload: '/SetSlots(sch_option="advisor")'
+        - title: "That's all, thank you."
+          payload: '/SetSlots(sch_option="other_topic")'
+
+  utter_other_topic:
+    - text: "Please let me know what other topic you'd like support with."
+  
+  utter_what_more_detail:
+    - text: "What specific detail or follow-up question do you have regarding the previous answer?"
+
+  utter_no_help_found:
+    - text: "I couldn't identify a specific help request. Could you please clarify how I can assist?"
+    - text: "I'm sorry, I can't provide help on that topic right now. Please let me know if you need assistance with something else."
+
+# ======================================= #
+# ======================================= #
+# ======================================= #
+
+actions:
+  - action_check_rag_success

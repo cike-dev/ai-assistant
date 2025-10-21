@@ -1,0 +1,36 @@
+University Software List
+
+An A-Z listing of all University licensed software for on-campus and home use is available but access requires University email and password. The list provides information on how to obtain the software and compatible devices.
+
+1. AppsAnywhere
+Over 200 applications are available on University PCs across all campuses, accessible via the desktop icon or start menu. More than 70 applications are available for students on personal laptops/PC, mostly for Windows devices. For Apple/Mac, consult your teacher or course leader.
+
+To access AppsAnywhere:
+Visit https://appsanywhere.wlv.ac.uk and log in with University credentials. First-time users must download and install the Cloudpaging player by selecting the blue box prompt. Some apps may experience reduced performance for the first 3-5 minutes as they download in the background.
+
+2. Microsoft 365
+Full suite (Outlook, Word, OneDrive, Teams) is available for staff on University devices and students on personal devices. Microsoft 365 is accessed by logging into https://office.com with University email and password. Students can install Office 365 on up to 5 personal devices via the "Install Office" tab on the website, following on-screen steps. Mobile access is available through app store installations.
+
+3. University Software Download Catalogue
+Software like SPSS or NVivo can be installed on personal laptops via http://www3.wlv.ac.uk/its/downloads/, requiring login and following instructions, including activation codes for some software (e.g., SPSS has a three-step process). FSE staff and students can purchase software at a discounted rate from https://onthehub.com/, including VMWare.
+
+Use personal devices to access OnTheHub, register after selecting University of Wolverhampton – Science and Engineering, and wait for account activation after eligibility check.
+Standard software on University PCs can be used for legitimate University purposes; check license terms with the Software Asset Manager for paid-for activities.
+
+4. Software Requests and Assistive Technology
+Staff can request new software not in the catalogue by contacting the IT Service Desk at itsupport@wlv.ac.uk, including:
+- Subject line: "New software request"
+- Purpose (teaching, research, assistive technology)
+- Reason for suitability
+For assistive technology, include recommendations from Occupational Health or Access to Work and details of supportive hardware.
+
+Faculties and Departments fund additional software; requests are assessed for suitability and equivalents.
+Outcomes are discussed with the requestor, Faculty, and Finance team before approval.
+Requests for the 2025/6 academic year must be made before January 31, 2025.
+
+Licensing and Support
+All software is subject to copyright legislation, with licensing terms for on-campus and home use available via provided links.
+For download issues, contact the Service Desk at itsupport@wlv.ac.uk.
+
+Contacts:
+Email: itsupport@wlv.ac.uk

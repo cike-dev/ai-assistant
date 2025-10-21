@@ -2,4 +2,5 @@
 .env
 .rasa/*
 models/*
-
+notebook_tests/*
+e2e_coverage_results/*

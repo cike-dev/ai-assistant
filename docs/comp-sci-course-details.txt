@@ -1,0 +1,884 @@
+Course Specification for Computer Science
+
+Published Date: 07-May-2025
+
+Produced By: Multi Type Usr Record For All Personnel
+
+Status: Validated
+
+Core Information
+Awarding Body / Institution: University of Wolverhampton
+
+School / Institute: School of Engineering, Computing, and Mathematical Sciences
+
+Course Code(s):
+CS001H01UV
+CS001H31UV
+
+UCAS Code: G400
+
+Course Title: BSc (Hons) Computer Science
+
+Hierarchy of Awards:
+Bachelor of Science with Honours Computer Science
+Bachelor of Science Computer Science
+Diploma of Higher Education Computer Science
+Certificate of Higher Education Computer Science
+
+Language of Study: English
+
+Date of DAG approval: 13/Sep/2010
+
+Last Review: 2015/6
+
+Course Specification valid
+from: 2009/0
+
+Course Specification valid to: 2021/2
+
+Academic Staff
+Course Leader: Dr Ian Coulson
+
+Head of Department: Dr Consolee Mbarushimana
+
+Full-time: 3 Years
+
+Part-time: 6 Years
+
+Course Information
+Location of Delivery: University of Wolverhampton
+
+Category of Partnership: Not delivered in partnership - Standard Provision
+
+Teaching Institution: University of Wolverhampton
+
+Open / Closed Course: This course is open to all suitably qualified candidates.
+
+Entry Requirements: Entry requirements are subject to regular review. The entry requirements applicable to a particular academic year will be published on the University website (and externally as appropriate e.g. UCAS)
+• 96 UCAS points
+• A Levels - grades CCC / BCD
+• BTEC L3 Extended Diploma or OCR Cambridge L3 Technical Extended Diploma - grades MMM
+• Access to HE Diploma (60 credits) of which a minimum of 45 must be at Level 3 (96 UCAS point equivalence, minimum 45 credits at merit)
+• Successful completion of the Science and Engineering with International Foundation Year.
+
+Other Requirements:
+Students must usually have studied for a minimum of two years post GCSE level. However, we will consider applications from mature students who do not have two years of post-16 study, where they
+have relevant work experience. Please see http://wlv.ac.uk/mature for further information. If you've got other qualifications or relevant experience, please contact The Gateway for further advice before applying. International entry requirements and application guidance can be found at http://www.wlv.ac.uk/international/apply. English language requirements also apply.
+
+Distinctive Features of the Course:
+The BSc (Hons) Computer Science will allow you to gain the understanding, knowledge, practical skills, attitudes, and values required to be a computer scientist after graduation. Knowledge is steadily introduced in the core principles of computer science, such as programming and problem solving, internet software architecture, databases, object-oriented programming, computational maths, and academic skills. The course then builds upon these core topics by focusing on full stack (i.e., web) development, collaborative development and providing a range of options will allow you to tailor your degree to match your career ambitions and interests. You can tailor your course to explore areas such as cloud systems, data mining, artificial intelligence, games and interactive applications, networking, mobile development, big data, and further full stack development. You will be able to demonstrate and apply knowledge and understanding of the essential facts, concepts, principles, theories, and practices in the area, enabling graduate employment in computer science related roles, such as software developer, programmer, web developer, Artificial intelligence engineer and interactive 3D app / game developer. You will also develop a range of transferable skills in problem solving, communication, project management, self-management, and direction as well as the ability to gather, synthesise, evaluate and reflect on information from relevant sources. You will also be able to demonstrate a range of social, legal, ethical, and professional skills required for continuing professional development in security, worldwide. You will be taught by a professional team of lecturers who have significant research and industrial experience. Many of our staff are Fellows and Members of the Industry’s professional body the British Computer Society. You will be offered the opportunity to undertake a placement year, where you gain invaluable experience in the workplace, before returning to complete your final year. Many students have found this to be a real asset when it comes to finding a job after graduation.
+
+Educational Aims of the Course:
+This course aims to produce software developers who can seamlessly make the transition from university to the international computer industry. This is achieved by providing a thorough grounding in the core principles of computer science and integrating these with computer languages, tools, techniques, and methodologies used by computer professionals worldwide. Our Computer Science course offers you the flexibility to pursue areas of particular interest to you such as web, cloud systems, data mining, artificial intelligence, games and interactive applications, networking, mobile development, and big data. Additionally, we will prepare you with the key skills needed to keep abreast of future developments.
+
+Intakes:
+Major Source of Funding: Office for Students (OFS)
+
+Tuition Fees:
+Tuition fees are reviewed on an annual basis. The fees applicable to a particular academic year will be
+published on the University website.
+
+Year
+
+Status
+
+Mode
+
+Amount
+
+2020/1
+
+H
+
+Full Time / Sandwich
+
+£9250.00
+
+2020/1
+
+Overseas
+
+Full Time / Sandwich
+
+£12250.00
+
+2020/1
+
+H
+
+Part Time
+
+£3050.00
+
+2020/1
+
+Overseas
+
+Part Time
+
+£6125.00
+
+2021/2
+
+H
+
+Full Time / Sandwich
+
+£9250.00
+
+2021/2
+
+Overseas
+
+Full Time / Sandwich
+
+£12950.00
+
+2021/2
+
+H
+
+Part Time
+
+£3100.00
+
+2022/3
+
+H
+
+Full Time / Sandwich
+
+£9250.00
+
+2022/3
+
+Overseas
+
+Full Time / Sandwich
+
+£13450.00
+
+2022/3
+
+H
+
+Part Time
+
+£3120.00
+
+2023/4
+
+H
+
+Full Time / Sandwich
+
+£9250.00
+
+2023/4
+
+Overseas
+
+Full Time / Sandwich
+
+£14450.00
+
+2023/4
+
+H
+
+Part Time
+
+£4625
+
+2024/5
+
+H
+
+Full Time / Sandwich
+
+£9250.00
+
+2024/5
+
+Overseas
+
+Full Time / Sandwich
+
+£14950.00
+
+2024/5
+
+H
+
+Part Time
+
+£4625.00
+
+2025/6
+
+H
+
+Full Time / Sandwich
+
+£9535.00
+
+2025/6
+
+Overseas
+
+Full Time / Sandwich
+
+£15995.00
+
+2025/6
+
+H
+
+Part Time
+
+£4768.00
+
+PSRB:
+None
+
+Course Structure:
+a. January (Full-time) - Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+b. Part time students study alongside full time students. However, they do not study more than 80 credits
+in each academic calendar year.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+4MM013
+
+Computational Mathematics
+
+20
+
+SEM2
+
+Core
+
+4CS021
+
+Introduction to Object-Oriented Programming
+
+20
+
+SEM2
+
+Core
+
+4CS020
+
+Interactive 3D Applications and Academic Skills
+
+20
+
+SEM2
+
+Core
+
+January (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+Part time students study alongside full time students. However, they do not study more than 80 credits
+in each academic calendar year.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+4CS001
+
+Introductory Programming And Problem Solving
+
+20
+
+SEM1
+
+Core
+
+4CS015
+
+Fundamentals of Computing
+
+20
+
+SEM1
+
+Core
+
+4CS017
+
+Internet Software Architecture and Databases
+
+20
+
+SEM1
+
+Core
+
+January (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+5CS024
+
+Collaborative Development
+
+20
+
+SEM2
+
+Core
+
+Option Group 01 | Min Value: 20 | Max Value: 20
+
+5CS048
+
+Cloud Systems
+
+20
+
+SEM2
+
+Core/Option Pooja Kaur
+
+5CS047
+
+Games and Interactive Applications Development
+
+20
+
+SEM2
+
+Core/Option Thomas Hartley
+
+5CS046
+
+Algorithms and Concurrency
+
+20
+
+SEM2
+
+Core
+
+January (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+5CS019
+
+Object-Oriented Design and Programming
+
+20
+
+SEM1
+
+Core
+
+5CS045
+
+Full stack Development
+
+20
+
+SEM1
+
+Core
+
+Option Group 01 | Min Value: 20 | Max Value: 20
+
+5CI021
+
+Data Mining
+
+20
+
+SEM1
+
+Core/Option Anirban Chakraborty
+
+5CS037
+
+Concepts and Technologies of AI
+
+20
+
+SEM1
+
+Core/Option Hiran Patel
+
+5CS032
+
+Computer Networking
+
+20
+
+SEM1
+
+Core/Option Ian Coulson
+
+January (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+6CS007
+
+Project and Professionalism
+
+40
+
+CRYRA
+
+Core
+
+Option Group 01 | Min Value: 20 | Max Value: 20
+
+6CS012 Artificial Intelligence and Machine Learning
+
+20
+
+SEM2
+
+Core/Option Amin Noroozi
+Fakhabi
+
+6CS060 Advanced Games and Interactive Applications
+Development
+
+20
+
+SEM2
+
+Core/Option Thomas Hartley
+
+6CS061 Software Engineering
+
+20
+
+SEM2
+
+Core/Option Md Arafatur
+Rahman
+
+6CS030 Big Data
+
+20
+
+SEM2
+
+Core
+
+January (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+Option Group 01 | Min Value: 40 | Max Value: 40
+
+6CS056 Advanced Full Stack Development
+
+20
+
+SEM1
+
+Core/Option Alix Bergeret
+
+6CS057 Mobile Application Design and Development
+
+20
+
+SEM1
+
+Core/Option Hiran Patel
+
+6CS059 Intelligent Systems
+
+20
+
+SEM1
+
+Core/Option Thomas Hartley
+
+September (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+Part time students study alongside full time students. However, they do not study more than 80 credits
+in each academic calendar year.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+4CS001 Introductory Programming And Problem Solving
+
+20
+
+SEM1
+
+Core
+
+4CS015 Fundamentals of Computing
+
+20
+
+SEM1
+
+Core
+
+4CS020 Interactive 3D Applications and Academic Skills
+
+20
+
+SEM2
+
+Core
+
+4CS017 Internet Software Architecture and Databases
+
+20
+
+SEM1
+
+Core
+
+4MM013 Computational Mathematics
+
+20
+
+SEM2
+
+Core
+
+4CS021 Introduction to Object-Oriented Programming
+
+20
+
+SEM2
+
+Core
+
+September (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per  academic year; 60 credits semester 1 and 60 credits semester 2.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+5CS019 Object-Oriented Design and Programming
+
+20
+
+SEM1
+
+Core
+
+5CS045 Full stack Development
+
+20
+
+SEM1
+
+Core
+
+5CS024 Collaborative Development
+
+20
+
+SEM2
+
+Core
+
+Option Group 01 | Min Value: 20 | Max Value: 20
+
+5CI021 Data Mining
+
+20
+
+SEM1
+
+Core/Option Anirban
+Chakraborty
+
+5CS037 Concepts and Technologies of AI
+
+20
+
+SEM1
+
+Core/Option Hiran Patel
+
+5CS032 Computer Networking
+
+20
+
+SEM1
+
+Core/Option Ian Coulson
+
+Option Group 01 | Min Value: 20 | Max Value: 20
+
+5CS048 Cloud Systems
+
+20
+
+SEM2
+
+Core/Option Pooja Kaur
+
+5CS047 Games and Interactive Applications Development
+
+20
+
+SEM2
+
+Core/Option Thomas Hartley
+
+5CS046 Algorithms and Concurrency
+
+20
+
+SEM2
+
+Core
+
+September (Full-time): Full time and Sandwich Undergraduate Honours students normally study 120 credits per academic year; 60 credits semester 1 and 60 credits semester 2.
+
+
+Module
+
+Title
+
+Credits
+
+Period
+
+Type
+
+6CS007 Project and Professionalism
+
+40
+
+YEAR
+
+Core
+
+Option Group 01 | Min Value: 40 | Max Value: 40
+
+6CS056 Advanced Full Stack Development
+
+20
+
+SEM1
+
+Core/Option Alix Bergeret
+
+6CS057 Mobile Application Design and Development
+
+20
+
+SEM1
+
+Core/Option Hiran Patel
+
+6CS059 Intelligent Systems
+
+20
+
+SEM1
+
+Core/Option Thomas Hartley
+
+Option Group 01 | Min Value: 20 | Max Value: 20
+
+6CS012 Artificial Intelligence and Machine Learning
+
+20
+
+SEM2
+
+Core/Option Amin Noroozi
+Fakhabi
+
+6CS060 Advanced Games and Interactive Applications Development
+
+20
+
+SEM2
+
+Core/Option Thomas Hartley
+
+6CS061 Software Engineering
+
+20
+
+SEM2
+
+Core/Option Md Arafatur
+Rahman
+
+6CS030 Big Data
+
+20
+
+SEM2
+
+Core
+
+Please note: Optional modules might not run every year, the course team will decide on an annual basis
+which options will be running, based on student demand and academic factors, to create the best
+learning experience.
+
+# Learning, Teaching and Assessment
+Academic Regulations Exemption: None.
+
+Reference Points:
+The course is designed with reference to the most up-to-date QAA Subject Benchmark for Computing
+and the accreditation requirements of BCS The Chartered Institute for IT. In addition reference has also
+been made to;
+1. Quality Code - Part A: Setting and Maintaining Academic Standards. Including;
+    - Qualifications Frameworks Characteristics Statements
+    - Credit Frameworks
+    - Subject Benchmark Statements - Computing
+2. Quality Code - Part B: Assuring and Enhancing Academic Quality
+3. University Policies and Regulations
+4. Equality Act (2010).
+
+Overview of Assessment:
+As part of the course approval process, the course learning outcomes were mapped to each of the
+modules forming the diet of the programme of study. This process confirmed that all course learning
+outcomes can be met through successful completion of the modules. This mapping applies to the final
+award as well as to all of the intermediate awards.
+
+# LEARNING OUTCOMES 
+CERTHE01 Demonstrate knowledge of the underlying concepts and principles associated with your area(s) of study, and an ability to evaluate and interpret these within the context of that area of study
+
+CERTHE02 Demonstrate an ability to present, evaluate and interpret qualitative and quantitative data, in order to develop lines of argument and make sound judgements in accordance with basic theories and concepts of your subject(s) of study.
+
+CERTHE03 Evaluate the appropriateness of different approaches to solving problems related to your area(s) of study and/or work
+
+CERTHE04 Communicate the results of your study/work accurately and reliably, and with structured and coherent arguments
+
+CERTHE05 Demonstrate the qualities and transferable skills necessary for employment requiring the exercise of some personal responsibility
+
+DIPHE01 Demonstrate knowledge and critical understanding of the well-established principles of your area(s) of study, and of the way in which those principles have developed with an understanding of the limits of your knowledge, and how this influences analyses and interpretations based on that knowledge.
+
+DIPHE02 Demonstrate the ability to apply underlying concepts and principles outside the context in which they were first studied, including, where appropriate, the application of those principles in an employment context.
+
+DIPHE03 Demonstrate knowledge of the main methods of enquiry in the subject(s) relevant to the named award, and ability to evaluate critically the appropriateness of different approaches to solving problems in the field of study.
+
+DIPHE04 Use a range of established techniques to initiate and undertake critical analysis of information, and to propose solutions to problems arising from that analysis.
+
+DIPHE05 Effectively communicate information, arguments and analysis in a variety of forms to specialist and nonspecialist audiences, and deploy key techniques of the discipline effectively.
+
+DIPHE06 Demonstrate the qualities and transferable skills necessary for employment, requiring the exercise of personal responsibility and decision-making and undertake further training, developing existing skills and acquire new competences that will enable them to assume significant responsibility within organisations.
+
+BHONSN01 Apply appropriate theory, tools and techniques (e.g. theory and practice of programming, object-oriented design and analysis, design and construction of data systems, concurrent and distributed systems) to the analysis, design and synthesis of solutions to requirements in the domain of Computer Science.
+
+BHONSN02 Demonstrate mastery of the essential facts, concepts, principles, theories and practices enabling graduate employment in applications of Computer Science (e.g. Software development, media computing, systems analysis).
+
+BHONSN03 Demonstrate a range of transferable skills in: problem solving; communication; project management; working individually and in teams; self-management; and the ability to gather, evaluate and reflect on information from relevant sources and synthesize new knowledge and solutions to requirements in the domain of applications of Computer Science.
+
+BHONSN04 Demonstrate a range of social, legal, ethical and professional skills required for continuing professional development in the Computer Science Discipline within a world-wide context.
+
+BHONS01 Apply appropriate theory, tools and techniques (e.g. theory and practice of programming, object-oriented design and analysis, design and construction of data systems, concurrent and distributed systems) to the analysis, design and synthesis of solutions to requirements in the domain of Computer Science.
+
+BHONS02 Demonstrate mastery of the essential facts, concepts, principles, theories and practices enabling graduate employment in applications of Computer Science (e.g. Software development, media computing, systems analysis).
+
+BHONS03 Demonstrate a range of transferable skills in:
+problem solving; communication; project management; working individually and in teams; self-management; and the ability to gather, evaluate and reflect on information from relevant sources and synthesize new knowledge and solutions to requirements in the domain of applications of Computer Science.
+
+BHONS04 Demonstrate a range of social, legal, ethical and professional skills required for continuing professional development in the Computer Science Discipline within a world-wide context.
+
+# Teaching, Learning and Assessment
+You will engage with a range of learning activities which will include lectures, tutorials, workshops and on-line forums and in class discussions. The learning activities on your course will develop distinctive graduate attributes that will make you stand out and enhance your employability. These skills will be
+embedded into the curriculum throughout your course. Examples include:
+- Digitally Literacy: All Computer Science graduates will be users of advanced technologies. However, on your course you will develop your skills to encompass literacy more fully such as learning how to find information and how to take best advantage of digital resources and the Internet to make you effective in the Information Age.
+
+- Global Citizenship: On each level of your course you will learn about social, legal and ethical aspects of Computing, which will broaden your understanding of the way the world works and how communication and collaboration are evolving.
+
+- Knowledgeable and Enterprising: Throughout your course you will build up your professional and employability skills and learn to apply the knowledge you have acquired in an enterprising way. You will constantly nurture your own intellectual curiosity. The tools, methodologies and techniques that you will learn have been carefully selected to prepare you with the skills that employers demand and the opportunities for work based learning and placements will allow you to gain the vital experience that they often expect.
+
+Assessment Methods:
+At the University of Wolverhampton, a variety of modes of assessment will be used to support and test your learning and progress and to help you develop capabilities that are valued beyond your University studies and into your working life. Your course may include a variety of assessment activities:
+- Written examinations (including online examinations, open and closed book examinations and quizzes)
+- Coursework (for example, essays, reports, portfolios, project proposals and briefs, CVs, poster presentation)
+- Practical (for example, oral and video presentations, laboratory work, performances, practical skills assessment)
+
+In the final year of your undergraduate degree, and at the end of your postgraduate degree, you are likely to be expected to write an extended piece of work or research, such as a dissertation or a practice-based piece of research.
+
+# Student Support
+Course support: At the start of each year of your course you will be assigned a Personal Tutor who will guide you through the induction process and provide support and academic counselling throughout the year on an appointment basis. They should be able to offer you advice and guidance to help you liaise with other staff and support facilities in the Faculty and University. You should meet your Personal Tutor at least 3 times a year, which must include meetings that you are invited to at critical points in your course.
+
+The Personal Tutor provides academic counselling and will be accessible throughout the week on a drop-in or appointment basis to discuss timetables, requests for extensions, requests for extenuating circumstances, general concerns about study and student life and general programme planning. The Personal Tutor will act as a first point of contact in relation to leave of absence (including returning after leave), withdrawal, transferring to another course (internal and external) and changes to mode of attendance. Your Programme Leader will be available thereafter for meetings by appointment to discuss leave of absence, withdrawal, transferring to another course (internal and external), changes to mode of attendance, returning after leave of absence and direct entrants.
+
+Subject support: Tutorials, workshops, seminars, and meetings - provide the primary opportunities for students to interact with staff on topics relating to modules. All modules provide at least one of these forms of faceto-face support.
+
+Formative feedback: tutors provide personalised written feedback on most summative assessments. The mechanism for feedback from purely formative tasks varies between assessments but will always be provided in some form. On-line formative tasks often provide feedback straight away. On occasions tutors may provide generalised verbal feedback to the whole class on points relating to an assessment. Assessment and subject-based surgeries provide additional student support for subjects that students often need extra help with. They are often concentrated around the times when assessments take place. Revision sessions are provided for many modules that have tests and enable you to interact with tutors to review parts of the course. Mock exams and tests may provide opportunities to experience an examination environment before the final summative test and give you feedback on your understanding.
+
+# Employability in the Curriculum
+Throughout your course you will build up your professional and employability skills and learn to apply the knowledge you have acquired in an enterprising way. You will constantly nurture your own intellectual curiosity. The tools, methodologies, and techniques that you will learn have been carefully selected to prepare you with the skills that employers demand and the opportunities for work-based learning and  placements will allow you to gain the vital experience that they often expect.

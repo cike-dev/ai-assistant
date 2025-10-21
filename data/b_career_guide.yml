@@ -1,0 +1,39 @@
+flows:
+  uni_career_guidance:
+    description: Offers university-specific career advice based on the user's query.
+    steps:
+      - action: utter_career_selected
+      
+      - collect: user_query
+        description: The user's career-related question or statement.
+      # - action: utter_acknowledge_query
+      - action: action_trigger_search
+
+      - id: check_job
+        noop: true
+        next:
+          - if: slots.user_query matches "(?i).*job.*"
+            then: offer_job_resources
+          - else: no_jobs_found
+
+      - id: offer_job_resources
+        action: utter_job_resources
+        next: collect_option
+
+      - id: no_jobs_found
+        action: utter_continue_guidance
+
+      - id: collect_option
+        collect: job_option
+        description: The user's selection after job resources (e.g., job_info, other_task)
+        next:
+          - if: slots.job_option == "job_info"
+            then: show_job_info
+          - else: continue_other_task
+
+      - id: show_job_info
+        # action: action_show_job_info
+        action: action_trigger_search
+
+      - id: continue_other_task
+        action: utter_continue_guidance

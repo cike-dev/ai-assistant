@@ -1,0 +1,54 @@
+# test_cases:
+#   - test_case: uni_academic_support_with_help_request_more_detail
+#     steps:
+#       - user: "I need help with my calculus homework"
+#       - slot_was_set:
+#           - user_query: "I need help with my calculus homework"
+#       - utter: utter_offer_help
+#       - user: "more_detail"
+#       - slot_was_set:
+#           - sch_option: "more_detail"
+
+#   - test_case: uni_academic_support_with_help_request_advisor
+#     steps:
+#       - user: "Can you help me find tutoring resources?"
+#       - slot_was_set:
+#           - user_query: "Can you help me find tutoring resources?"
+#       - utter: utter_offer_help
+#       - user: "advisor"
+#       - slot_was_set:
+#           - sch_option: "advisor"
+#       - utter: utter_advisor_contact
+
+#   - test_case: uni_academic_support_with_help_request_other_topic
+#     steps:
+#       - user: "I need help preparing for finals"
+#       - slot_was_set:
+#           - user_query: "I need help preparing for finals"
+#       - utter: utter_offer_help
+#       - user: "something_else"
+#       - slot_was_set:
+#           - sch_option: "something_else"
+#       - utter: utter_other_topic
+
+#   - test_case: uni_academic_support_without_help_keyword
+#     steps:
+#       - user: "I have questions about course requirements"
+#       - slot_was_set:
+#           - user_query: "I have questions about course requirements"
+#       - utter: utter_no_help_found
+
+#   - test_case: uni_academic_support_exam_advice_with_help
+#     steps:
+#       - user: "I need help with exam strategies"
+#       - slot_was_set:
+#           - user_query: "I need help with exam strategies"
+#       - utter: utter_offer_help
+#       - user: "more_detail"
+#       - slot_was_set:
+#           - sch_option: "more_detail"
+
+#   - test_case: greet_and_academic_support_combined
+#     steps:
+#       - user: "Hello, I need help with my studies"
+#       - utter: utter_greet_and_purpose
