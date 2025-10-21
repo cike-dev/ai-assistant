@@ -14,9 +14,9 @@
 - Linux or MacOS: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
 #### 2. Create and activate virtual env
-`mkdir my-rasa-assistant`
-`cd my-rasa-assistant`
-`uv venv --python 3.12 .rasa-env`
+`mkdir my-rasa-assistant`  
+`cd my-rasa-assistant`  
+`uv venv --python 3.12 .rasa-env`  
 
 **Activate:**  
 - Windows: `.\.rasa-env\Scripts\activate`
@@ -34,9 +34,9 @@ obtain license key: https://rasa.com/rasa-pro-developer-edition-license-key-requ
 
 Method 1:  
 - Create a new file, name it .env
-- Edit the .env file and save the license key like this: `RASA_LICENSE="YOUR_LICENSE_KEY"`  
+- Edit the .env file and save your license key like this: `RASA_LICENSE="YOUR_LICENSE_KEY"`  
 
-Method 2:
+Method 2:  
 on windows (pwsh): `[Environment]::SetEnvironmentVariable("RASA_LICENSE", "YOUR_LICENSE_KEY", "User")`  
 Linux or macOS: `export RASA_LICENSE="YOUR_LICENSE_KEY"`  
 
@@ -47,6 +47,6 @@ Linux or macOS: `export RASA_LICENSE="YOUR_LICENSE_KEY"`
 set llm health check:  
 `LLM_API_HEALTH_CHECK="True"`  
 
-save the api keys like this:  
+save your api keys like this:  
 `OPENAI_API_KEY="YOUR OPENAI API KEY"`  
 `GEMINI_API_KEY="YOUR GEMINI API KEY"`  
