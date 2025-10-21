@@ -93,7 +93,7 @@ model_groups:
     models:
       - provider: gemini
         model: gemini-embedding-001
-        api_key: ${GEMINI_API_KEY}  # Optional, set as env variable or here
+        api_key: ${GEM_EMBED_API_KEY}  # Optional, set as env variable or here
         # request_timeout: 20
 
   - id: mistral_llm

@@ -38,10 +38,11 @@ pipeline:
   # SearchReadyLLMCommandGenerator is better suited for EnterpriseSearch
   # it optimizes RAG-based knowledge retrieval and business flow accuracy 
   # better than CompactLLMCommandGenerator
+  
   - name: SearchReadyLLMCommandGenerator
-    prompt_template: prompts/command-generator.jinja2
+    # prompt_template: prompts/command-generator.jinja2
     user_input:
-      max_characters: 420 # default value
+      max_characters: 512 # default value: 420
     llm:
       model_group: gemini_llm # use LLM model_group ID defined in endpoints.yml
     flow_retrieval:
@@ -65,9 +66,9 @@ policies:
   - name: EnterpriseSearchPolicy
     check_relevancy: true
     llm:
-      model_group: gemini_llm  # Use LLM model id in endpoints.yml
+      model_group: mistral_llm  # Use LLM model id in endpoints.yml
     embeddings:
-      model_group: gemini_embedding  # Use embedding model id in endpoints.yml
+      model_group: mistral_embedding  # Use embedding model id in endpoints.yml
     vector_store:
       type: "faiss"
       source: "./docs"

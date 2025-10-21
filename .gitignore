@@ -4,3 +4,4 @@
 models/*
 notebook_tests/*
 e2e_coverage_results/*
+actions\__pycache__/*
