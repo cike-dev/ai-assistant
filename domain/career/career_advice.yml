@@ -1,0 +1,232 @@
+version: "3.1"
+
+slots:
+  student_name:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  current_major:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  year_of_study:
+    type: categorical
+    values: [freshman, sophomore, junior, senior]
+    mappings:
+      - type: from_llm
+  
+  career_interest:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  gpa:
+    type: float
+    mappings:
+      - type: from_llm
+  
+  has_internship:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  more_questions:
+    type: text
+    mappings:
+      - type: from_llm
+
+responses:
+  utter_ask_year_of_study:
+    - text: "Which year are you in?"
+      buttons:
+        - title: "Freshman"
+          payload: '/SetSlots(year_of_study=freshman)'
+        - title: "Sophomore"
+          payload: '/SetSlots(year_of_study=sophomore)'
+        - title: "Junior"
+          payload: '/SetSlots(year_of_study=junior)'
+        - title: "Senior"
+          payload: '/SetSlots(year_of_study=senior)'
+  
+  utter_ask_has_internship:
+    - text: "Have you done any internships so far?"
+      buttons:
+        - title: "Yes"
+          payload: '/SetSlots(has_internship=true)'
+        - title: "No"
+          payload: '/SetSlots(has_internship=false)'
+
+  utter_ask_student_name:
+    - text: "Let's get started! May I know your name? 😊"
+  
+  utter_greet_counselor:
+    - text: "Nice to meet you, {student_name}! I'm here to help you plan your career path."
+  
+  utter_ask_current_major:
+    - text: "What are you studying right now? (e.g., Computer Science, Biology)"
+  
+  # utter_ask_year_of_study:
+  #   - text: "Which year are you in? Freshman, sophomore, junior, or senior?"
+  
+  utter_invalid_year:
+    - text: "Please pick freshman, sophomore, junior, or senior."
+  
+  utter_ask_career_interest:
+    - text: "What kind of career or field are you interested in?"
+  
+  utter_ask_gpa:
+    - text: "If you're comfortable sharing, what's your current GPA?"
+  
+  # utter_ask_has_internship:
+  #   - text: "Have you done any internships so far?"
+  
+  utter_ask_more_questions:
+    - text: "Anything else on your mind? (career, classes, or just chat!)"
+  
+  utter_goodbye_counselor:
+    - text: "Thanks for chatting, {student_name}! Wishing you all the best on your journey. 😊"
+  
+  utter_advice_core:
+    - text: "{advice_text}"
+  
+  utter_encourage_human:
+    - text: "If you want to discuss your goals further, I'm happy to help or connect you with a real career adviser!"
+  
+  utter_cite_sources:
+    - text: "Sources: {sources_list}"
+
+actions:
+  - action_give_career_advice
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: "3.1"
+
+# slots:
+#   student_name:
+#     type: text
+#     mappings:
+#       - type: from_llm
+  
+#   current_major:
+#     type: text
+#     mappings:
+#       - type: from_llm
+  
+#   year_of_study:
+#     type: categorical
+#     values: [freshman, sophomore, junior, senior]
+#     mappings:
+#       - type: from_llm
+  
+#   career_interest:
+#     type: text
+#     mappings:
+#       - type: from_llm
+  
+#   gpa:
+#     type: float
+#     mappings:
+#       - type: from_llm
+  
+#   has_internship:
+#     type: bool
+#     mappings:
+#       - type: from_llm
+  
+#   more_questions:
+#     type: text
+#     mappings:
+#       - type: from_llm
+
+# responses:
+#   utter_ask_student_name:
+#     - text: "Let's get started! May I know your name? 😊"
+#       metadata:
+#         rephrase: True
+  
+#   utter_greet_counselor:
+#     - text: "Nice to meet you, {student_name}! I'm here to help you plan your career path."
+#       metadata:
+#         rephrase: True
+  
+#   utter_ask_current_major:
+#     - text: "What are you studying right now? (e.g., Computer Science, Biology)"
+#       metadata:
+#         rephrase: True
+  
+#   utter_ask_year_of_study:
+#     - text: "Which year are you in? Freshman, sophomore, junior, or senior?"
+#       metadata:
+#         rephrase: True
+  
+#   utter_invalid_year:
+#     - text: "Please pick freshman, sophomore, junior, or senior."
+#       metadata:
+#         rephrase: True
+  
+#   utter_ask_career_interest:
+#     - text: "What kind of career or field are you interested in?"
+#       metadata:
+#         rephrase: True
+  
+#   utter_ask_gpa:
+#     - text: "If you're comfortable sharing, what's your current GPA?"
+#       metadata:
+#         rephrase: True
+  
+#   utter_ask_has_internship:
+#     - text: "Have you done any internships so far?"
+#       metadata:
+#         rephrase: True
+  
+#   utter_ask_more_questions:
+#     - text: "Anything else on your mind? (career, classes, or just chat!)"
+#       metadata:
+#         rephrase: True
+  
+#   utter_goodbye_counselor:
+#     - text: "Thanks for chatting, {student_name}! Wishing you all the best on your journey. 😊"
+#       metadata:
+#         rephrase: True
+  
+#   utter_advice_core:
+#     - text: "{advice_text}"
+#       metadata:
+#         rephrase: True
+  
+#   utter_encourage_human:
+#     - text: "If you want to discuss your goals further, I'm happy to help or connect you with a real career adviser!"
+#       metadata:
+#         rephrase: True
+  
+#   utter_cite_sources:
+#     - text: "Sources: {sources_list}"
+#       metadata:
+#         rephrase: True
+
+# actions:
+#   - action_give_career_advice 

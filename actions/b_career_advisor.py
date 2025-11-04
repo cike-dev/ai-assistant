@@ -39,6 +39,7 @@ class ActionGiveCareerAdvice(Action):
                 "Base ONLY on these snippets—no external knowledge. End with a networking nudge.\n\n"
                 f"Snippets:\n{chr(10).join(snippets)}"
             )
+            
             # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
             # response = client.chat.completions.create(
             #     model="gpt-4o-mini",
@@ -47,6 +48,7 @@ class ActionGiveCareerAdvice(Action):
             #     max_tokens=300
             # )
             # advice_text = response.choices[0].message.content.strip()
+
         except Exception as e:
             advice_text = (
                 f"Sometimes pulling fresh web info hits a snag—here's solid, timeless guidance for {interest} in {major}:\n"
