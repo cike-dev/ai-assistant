@@ -1,7 +1,7 @@
 # Rasa Specific Ignores
-# .env
 .rasa/*
 models/*
 notebook_tests/*
 e2e_coverage_results/*
 actions\__pycache__/*
+.env
