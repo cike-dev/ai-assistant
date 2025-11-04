@@ -65,13 +65,14 @@ policies:
 
   - name: EnterpriseSearchPolicy
     check_relevancy: true
-    llm:
-      model_group: mistral_llm  # Use LLM model id in endpoints.yml
-    embeddings:
-      model_group: mistral_embedding  # Use embedding model id in endpoints.yml
     vector_store: 
       type: "faiss"
       source: "./docs"
       threshold: 0.7
+    llm:
+      model_group: mistral_llm  # Use LLM model id in endpoints.yml
+    embeddings:
+      model_group: mistral_embedding  # Use embedding model id in endpoints.yml
+    
 
 

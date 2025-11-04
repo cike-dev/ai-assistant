@@ -47,13 +47,15 @@ action_endpoint:
 # Ensure the OPENAI_API_KEY is set to prevent any missing API key errors.
 # For more details, refer to the documentation:
 # https://rasa.com/docs/rasa-pro/concepts/contextual-response-rephraser
+
 # To enable the rephraser, remove the comment symbols in the lines below.
 nlg:
   type: rephrase
-  # rephrase_all: true # uncomment to rephrase all bot responses
   llm:
     model_group: gemini_llm
-
+  # prompt_template: prompts/rephraser_demo_personality_prompt.jinja2
+  # rephrase_all: False # optional
+  # summarize_history: False # optional
 
 
 # model_groups:
