@@ -1,0 +1,128 @@
+# flows:
+#   uni_career_guidance:
+#     description: Offers university-specific career advice based on the user's query.
+#     steps:
+#       - action: utter_career_selected
+      
+#       - collect: user_query
+#         description: The user's career-related question or statement.
+#       # - action: utter_acknowledge_query
+#       - action: action_trigger_search
+
+#       - id: check_job
+#         noop: true
+#         next:
+#           - if: slots.user_query matches "(?i).*job.*"
+#             then: offer_job_resources
+#           - else: no_jobs_found
+
+#       - id: offer_job_resources
+#         action: utter_job_resources
+#         next: collect_option
+
+#       - id: no_jobs_found
+#         action: utter_continue_guidance
+
+#       - id: collect_option
+#         collect: job_option
+#         description: The user's selection after job resources (e.g., job_info, other_task)
+#         next:
+#           - if: slots.job_option == "job_info"
+#             then: show_job_info
+#           - else: continue_other_task
+
+#       - id: show_job_info
+#         # action: action_show_job_info
+#         action: action_trigger_search
+
+#       - id: continue_other_task
+#         action: utter_continue_guidance
+
+
+flows:
+  career_advice:
+    name: Career Advising Session
+    description: >
+      Friendly, trustworthy career-counseling session for students seeking advice about their future, studies, or professional interests.
+      Triggered by phrases like "career advice", "future plans", "what should I do after graduation", etc.
+      Collects student name, major, year, interests, optional GPA/internship, and provides tailored, up-to-date guidance.
+
+    steps:
+      - collect: student_name
+        description: "The student's full name."
+        utter:
+          - text: "Let's get started! May I know your name? 😊"
+
+      - action: utter_greet_counselor
+        # Greets by name, keeps it warm and inviting
+
+      - collect: current_major
+        description: "The student's current major or field of study."
+        utter:
+          - text: "What are you studying right now? (e.g., Computer Science, Biology)"
+
+      - collect: year_of_study
+        description: "Year of study: freshman, sophomore, junior, or senior."
+        utter:
+          - text: "Which year are you in? Freshman, sophomore, junior, or senior?"
+        validations:
+          - values: ["freshman", "sophomore", "junior", "senior"]
+            error: "Please pick freshman, sophomore, junior, or senior."
+
+      - collect: career_interest
+        description: "Area or field the student is interested in pursuing."
+        utter:
+          - text: "What kind of career or field are you interested in?"
+
+      - collect: gpa
+        description: "The student's GPA (optional)."
+        optional: true
+        utter:
+          - text: "If you’re comfortable sharing, what’s your current GPA?"
+
+      - collect: has_internship
+        description: "Whether the student has any internship experience (optional)."
+        optional: true
+        utter:
+          - text: "Have you done any internships so far? (optional)"
+
+      - action: action_give_career_advice
+        # Your custom action fetches, summarizes, and rephrases online info
+
+      - action: utter_encourage_human
+        # Encourages follow-up or human adviser
+
+      - action: utter_cite_sources
+        # Gives sources for transparency
+
+      - utter:
+          - text: "Anything else on your mind? (career, classes, or just chat!)"
+
+      - collect: more_questions
+        description: "Handles follow-up questions or topics."
+        optional: true
+        ask_before_filling: true
+
+      # - next:
+      #     - if: intent == "goodbye"
+      #       then: end_session
+      #     - else:
+      #         - utter:
+      #             - text: "I'm all ears! 😄"
+      #           next: more_questions
+
+      - collect: more_questions
+        description: "Does the user want to continue? Accepts 'no', 'goodbye', or a new question."
+        optional: true
+        ask_before_filling: true
+        next:
+          - if: slots.more_questions in ["no", "goodbye", "none"]
+            then: end_session
+          - else:
+              - utter:
+                  - text: "I'm all ears! 😄"
+                next: more_questions
+
+      - id: end_session
+        action: utter_goodbye_counselor
+        # ends the current session
