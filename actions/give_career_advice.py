@@ -1,7 +1,7 @@
 import os
 from typing import Any, Text, Dict, List
 from ddgs import DDGS  # pip install ddgs
-from openai import OpenAI  # pip install openai
+import google.generativeai as genai
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
@@ -31,6 +31,7 @@ class ActionGiveCareerAdvice(Action):
                 snippets.append(result.get("body", ""))
                 sources.append(result.get("href", ""))
             sources_list = ", ".join([f"[{i+1}] {src}" for i, src in enumerate(sources) if src])
+            
             # Compose the prompt
             prompt = (
                 f"You are a warm, encouraging university career counselor. Summarize these search results into 4-5 upbeat bullet points of advice for a {year} {major} student (GPA {gpa}) interested in {interest} "
@@ -38,7 +39,16 @@ class ActionGiveCareerAdvice(Action):
                 "Use simple language, add 1-2 emojis per point. Focus on 2025 jobs, skills, internships, and resume tips. "
                 "Base ONLY on these snippets—no external knowledge. End with a networking nudge.\n\n"
                 f"Snippets:\n{chr(10).join(snippets)}"
-            )
+            ) # note: chr(10) <==> '\n'
+
+            GEM_API_KEY = os.getenv("GEMS")
+            genai.configure(api_key=GEM_API_KEY)
+
+            model = genai.GenerativeModel('Gemini-2.5-flash')
+
+            response = model.generate_content(prompt)
+
+            advice_text = response.text
             
             # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
             # response = client.chat.completions.create(
