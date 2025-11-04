@@ -1,5 +1,5 @@
 # Rasa Specific Ignores
-.env
+# .env
 .rasa/*
 models/*
 notebook_tests/*

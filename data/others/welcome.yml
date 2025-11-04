@@ -17,7 +17,8 @@ flows:
         link: uni_academic_support  # Links to existing academic flow
 
       - id: link_to_career
-        link: uni_career_guidance   # Links to existing career support flow
+        # link: uni_career_guidance   # Links to existing career support flow
+        link: career_advice
 
       # - id: fallback_chitchat
       #   link: pattern_chitchat

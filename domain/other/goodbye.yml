@@ -1,0 +1,19 @@
+responses:
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+  
+  utter_continue:
+    - text: "Okay, let's continue. How can I help you?"
+    - text: "Right, let's continue. Feel free to ask me anything"
+  
+  utter_ask_confirm_goodbye:
+    - text: "Are you sure you want to end this conversation?"
+      buttons:
+        - payload: "yes"
+          title: "Yes"
+        - payload: "no"
+          title: "No"
+
+slots:
+  confirm_goodbye:
+    type: bool

@@ -1,10 +1,22 @@
-Run this command: export UV_LINK_MODE=copy
-to avoid a message like this from uv:
-    warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
-        If the cache and target directories are on different filesystems, hardlinking may not be supported.
-        If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+First and foremost, ensure that uv is installed
+Use uv to create a virtual environment (with python 3.12)
+Activate the virtual environment (See Rasa docs)
+Follow the steps below
 
 ----
 
 Use this command to install the packages in requirements.txt:
     uv pip install -r requirements.txt
+
+--- 
+
+To install any other package, use: uv pip install <package-name>
+
+---
+
+If you come across an error or a message like this from uv:
+    warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+        If the cache and target directories are on different filesystems, hardlinking may not be supported.
+        If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+
+Run this command: export UV_LINK_MODE=copy        
