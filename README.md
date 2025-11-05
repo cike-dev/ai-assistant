@@ -29,8 +29,9 @@
 #### 4. Install requirements
 `uv pip install -r requirements.txt`
 
-**Set RASA_LICENSE**  
+**Set RASA_LICENSE Key**  
 obtain license key: https://rasa.com/rasa-pro-developer-edition-license-key-request/   
+For access to Rasa-pro developers edition
 
 Method 1:  
 - Create a new file, name it .env
