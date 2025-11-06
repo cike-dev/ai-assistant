@@ -1,7 +1,9 @@
 import os
 from typing import Any, Text, Dict, List
+
 from ddgs import DDGS  # pip install ddgs
 import google.generativeai as genai
+
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 

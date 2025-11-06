@@ -19,9 +19,10 @@ flows:
         description: "Year of study: freshman, sophomore, junior, or senior."
         utter: utter_ask_year_of_study
         # rejections:
-        #   - if: "not ({'freshman', 'sophomore', 'junior', 'senior'} contains slots.year_of_study)"
+        #   - if: "not {'freshman', 'sophomore', 'junior', 'senior'} contains slots.year_of_study"
         #     utter: utter_invalid_year
-
+        # # See domain-level validation 
+        
       - collect: career_interest
         description: "Area or field the student is interested in pursuing."
         utter: utter_ask_career_interest
@@ -36,12 +37,14 @@ flows:
 
       - action: action_give_career_advice
 
-      - action: utter_encourage_human
-
-      - action: utter_cite_sources
+      # # These 2 actions were already implemented in the custom action
+      # - action: utter_encourage_human
+      # - action: utter_cite_sources
 
       - collect: more_questions
-        description: "Whether the user wants to ask more questions. Set to True if they want to continue (yes, sure, more). Set to False if they're done (no, that's all, I'm finished)."
+        # description: "Whether the user wants to ask more questions. Set to True if they want to continue (yes, sure, more). Set to False if they're done (no, that's all, I'm finished)."
+        # # using a simple description
+        description: "Whether the user wants to continue with more questions (true/false)."
         ask_before_filling: true
         utter: utter_ask_more_questions
         next:
@@ -49,16 +52,3 @@ flows:
             then: 
               - link: goodbye_flow
           - else: END
-
-      # - id: ask_more_questions
-      #   collect: more_questions
-      #   description: "Does the user want to continue?"
-      #   ask_before_filling: true
-      #   utter: utter_ask_more_questions
-      #   next:
-      #     - if: '{"no", "goodbye", "none"} contains slots.more_questions'
-      #       then: end_session
-      #     - else: ask_more_questions
-
-      # - id: end_session
-      #   action: utter_goodbye_counselor

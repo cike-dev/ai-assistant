@@ -1,41 +1,41 @@
-version: "3.7"
+# version: "3.7"
 
-actions: 
-  - action_show_job_info
+# actions: 
+#   - action_show_job_info
 
-slots:
-  # user_query: # defined in domain/welcome.yml
-  #   type: text
-  #   mappings:
-  #     - type: from_llm
+# slots:
+#   # user_query: # defined in domain/welcome.yml
+#   #   type: text
+#   #   mappings:
+#   #     - type: from_llm
 
-  job_option:
-    type: text
-    mappings:
-      - type: from_llm
+#   job_option:
+#     type: text
+#     mappings:
+#       - type: from_llm
 
-responses:
-  utter_career_selected:
-    - text: "Perfect! I can assist you with career planning, job search strategies, resume guidance, or help you connect with career services. What career topic can I help you with?"
+# responses:
+#   utter_career_selected:
+#     - text: "Perfect! I can assist you with career planning, job search strategies, resume guidance, or help you connect with career services. What career topic can I help you with?"
     
-  # utter_ask_user_query: # defined in domain/welcome.yml
-  #   - text: "What career or job support are you looking for?"
+#   # utter_ask_user_query: # defined in domain/welcome.yml
+#   #   - text: "What career or job support are you looking for?"
 
-  utter_job_resources:
-    - text: "Would you like to see job info or continue with another task?"
-      buttons:
-        - title: "See job info"
-          payload: '/SetSlots(job_option="job_info")'
-        - title: "Continue with other task"
-          payload: '/SetSlots(job_option="other_task")'
+#   utter_job_resources:
+#     - text: "Would you like to see job info or continue with another task?"
+#       buttons:
+#         - title: "See job info"
+#           payload: '/SetSlots(job_option="job_info")'
+#         - title: "Continue with other task"
+#           payload: '/SetSlots(job_option="other_task")'
 
-  utter_ask_job_option:
-    - text: "Please choose what you'd like to do next:"
-      buttons:
-        - title: "See job info"
-          payload: '/SetSlots(job_option="job_info")'
-        - title: "Continue with other task"
-          payload: '/SetSlots(job_option="other_task")'
+#   utter_ask_job_option:
+#     - text: "Please choose what you'd like to do next:"
+#       buttons:
+#         - title: "See job info"
+#           payload: '/SetSlots(job_option="job_info")'
+#         - title: "Continue with other task"
+#           payload: '/SetSlots(job_option="other_task")'
 
-  utter_continue_guidance:
-    - text: "Let me know what specific career guidance you’re looking for, and I’ll do my best to help."
+#   utter_continue_guidance:
+#     - text: "Let me know what specific career guidance you’re looking for, and I’ll do my best to help."
