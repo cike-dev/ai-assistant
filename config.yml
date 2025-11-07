@@ -31,10 +31,6 @@ assistant_id: wlv_chat_assistant
 language: en
 
 pipeline:
-  # - name: CompactLLMCommandGenerator
-  #   llm:
-  #     model_group: openai-gpt-4o
-
   # SearchReadyLLMCommandGenerator is better suited for EnterpriseSearch
   # it optimizes RAG-based knowledge retrieval and business flow accuracy 
   # better than CompactLLMCommandGenerator
@@ -44,7 +40,7 @@ pipeline:
     user_input:
       max_characters: 512 # default value: 420
     llm:
-      model_group: gemini_llm # use LLM model_group ID defined in endpoints.yml
+      model_group: gemini_llm_01 # use LLM model_group ID defined in endpoints.yml
     flow_retrieval:
       # active: false
         # # if flows become complex and plenty, 
@@ -53,7 +49,7 @@ pipeline:
       should_embed_slots: true
       num_flows: 20
       embeddings:
-        model_group: gemini_embedding  # Use embedding model id in endpoints.yml
+        model_group: gemini_embedding_01  # Use embedding model id in endpoints.yml
 
 
 
@@ -61,7 +57,7 @@ pipeline:
 policies:
   - name: FlowPolicy
     llm:
-      model_group: gemini_llm  # Use LLM model id in endpoints.yml
+      model_group: gemini_llm_02  # Use LLM model id in endpoints.yml
 
   - name: EnterpriseSearchPolicy
     check_relevancy: true
@@ -70,9 +66,9 @@ policies:
       source: "./docs"
       threshold: 0.7
     llm:
-      model_group: mistral_llm  # Use LLM model id in endpoints.yml
+      model_group: gemini_llm_02  # Use LLM model id in endpoints.yml
     embeddings:
-      model_group: mistral_embedding  # Use embedding model id in endpoints.yml
+      model_group: gemini_embedding_02  # Use embedding model id in endpoints.yml
     
 
 

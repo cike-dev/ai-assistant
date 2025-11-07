@@ -20,11 +20,11 @@ slots:
       - senior
     mappings:
       - type: from_llm
-    validation:
-      rejections:
-        - if: not ({'freshman', 'sophomore', 'junior', 'senior'} contains slots.year_of_study)
-          utter: utter_invalid_year
-      refill_utter: utter_ask_year_of_study
+    # validation:
+    #   rejections:
+    #     - if: not ({'freshman', 'sophomore', 'junior', 'senior'} contains slots.year_of_study)
+    #       utter: utter_invalid_year
+    #   refill_utter: utter_ask_year_of_study
   
   career_interest:
     type: text

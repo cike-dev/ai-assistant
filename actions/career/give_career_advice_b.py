@@ -3,14 +3,14 @@ import sys
 import asyncio
 from typing import Any, Text, Dict, List
 
-from ddgs import DDGS                     # sync library
-import google.generativeai as genai       # sync library
+from ddgs import DDGS     # sync library
+from google import genai      # sync library
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
-from .logger_utils import get_logger
+from ..others.logger_utils import get_logger
 
 # Initialize a logger for this global setup block
 logger = get_logger("Career Advice action")
@@ -92,6 +92,9 @@ class ActionGiveCareerAdvice(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
         
+        # -----------------------------------------------------------------
+        # Call Gemini in a thread (again non‑blocking)
+        # -----------------------------------------------------------------
         # Check for env var early, fail fast
         GEM_API_KEY = os.getenv("GEMS")
         if not GEM_API_KEY:
@@ -165,16 +168,7 @@ Search results:
 {chr(10).join(snippets)}
 
 Advice:
-"""
-        # -----------------------------------------------------------------
-        # Call Gemini in a thread (again non‑blocking)
-        # -----------------------------------------------------------------
-        
-        # --- In order to fail fast, this check was done earlier --- #
-        # GEM_API_KEY = os.getenv("GEMS")
-        # if not GEM_API_KEY:
-        #     raise ValueError("Environment variable GEMS (Gemini API key) is missing.")
-
+"""     
         try:
             advice_text = await asyncio.to_thread(
                 self._call_gemini, prompt, GEM_API_KEY
