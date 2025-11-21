@@ -1,0 +1,11 @@
+responses:
+  utter_bot_challenge:
+    - text: |
+        Yep! I’m {agent_name} 🤖 — your AI assistant on campus.  
+        Here to help with school info or career advice. 
+    - text: |
+        That’s right — I’m {agent_name}, your campus digital assistant.  
+        Ask me anything about the university or your career path!
+    - text: |
+        You got it! I’m {agent_name} 🤖, a campus virtual assistant for students.  
+        How can I help you today?

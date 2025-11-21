@@ -1,5 +1,5 @@
 rasa-pro==3.14.1
-mistralai
-ddgs
-duckduckgo-ai-chat
+# mistralai
+# ddgs
 google-genai
+ipykernel 

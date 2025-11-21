@@ -1,0 +1,65 @@
+version: "3.1"
+
+slots: 
+  confirm_human_handoff:
+    type: bool
+    mappings:
+      - type: "from_llm"
+
+
+responses:
+
+  utter_offer_human_handoff:
+    - text: |
+        Would you like me to connect you with the right university contact for this? 
+        I can share details for the student support office or careers team. 🎓
+      # 'right' or 'appropriate' university contact for this?
+      buttons:
+        - payload: "/SetSlots(confirm_human_handoff=True)"
+          title: "Yes"
+        - payload: "/SetSlots(confirm_human_handoff=False)"
+          title: "No"
+
+    - text: |
+        It sounds like you might need to speak to a real staff member.  
+        Would you like me to give you their contact info?
+      buttons:
+        - payload: "/SetSlots(confirm_human_handoff=True)"
+          title: "Yes"
+        - payload: "/SetSlots(confirm_human_handoff=False)"
+          title: "No"
+
+  utter_transferring_to_human:
+    - text: |
+        No problem — here’s who you can reach out to for further help. 📞
+
+  utter_handoff_cancelled:
+    - text: "No problem, let me know if you need anything else!"
+    - text: |
+        Alright, no worries! I’ll do my best to help you here instead. 💬
+      metadata:
+        rephrase: True
+
+actions: []
+  # - "action_human_handoff"
+
+
+
+
+
+
+
+
+
+
+
+
+# # In your academic support flow:
+#   next: do_handoff
+# - call: human_handoff
+#   id: do_handoff
+
+# # In your career counseling flow: Pending implementation
+#   next: do_handoff
+# - call: human_handoff
+#   id: do_handoff

@@ -2,49 +2,91 @@ flows:
   career_advice:
     name: Career Advising Session
     description: >
-      Friendly career-counseling session for students seeking advice about their future.
+      Guide students through a friendly, personalized career counseling session, gathering context and providing tailored advice.
+    
+    persisted_slots:
+      - student_name
+      - current_major
+      - year_of_study
+      - career_interest
+      - gpa
+      - has_internship
+      # - followup_question
+      # - more_questions
 
     steps:
       - collect: student_name
-        description: "The student's full name."
+        description: "Collect the student's full name."
+        ask_before_filling: false
         utter: utter_ask_student_name
 
-      - action: utter_greet_counselor
+      # - action: utter_greet_counselor
 
       - collect: current_major
-        description: "The student's current major or field of study."
+        description: "Collect the student's current major or field of study."
+        ask_before_filling: false
         utter: utter_ask_current_major
 
       - collect: year_of_study
-        description: "Year of study: freshman, sophomore, junior, or senior."
+        description: "Determine student's year: freshman, sophomore, junior, or senior."
+        ask_before_filling: false
         utter: utter_ask_year_of_study
-        
+
       - collect: career_interest
-        description: "Area or field the student is interested in pursuing."
+        description: "Understand the student's career interests or areas they'd like to pursue."
+        ask_before_filling: false
         utter: utter_ask_career_interest
 
       - collect: gpa
-        description: "The student's GPA if they want to share."
+        description: "Optionally collect the student's GPA."
+        ask_before_filling: false
         utter: utter_ask_gpa
 
       - collect: has_internship
-        description: "Whether the student has any internship experience."
+        description: "Ask if the student has prior internship experience."
+        ask_before_filling: false
         utter: utter_ask_has_internship
 
       - action: action_give_career_advice
+      # - link: followup_advice_flow
+      - call: followup_advice_flow
+        next: check_more_questions
 
-      # # These 2 actions were already implemented in the custom action
-      # - action: utter_encourage_human
-      # - action: utter_cite_sources
-
-      - collect: more_questions
-        # description: "Whether the user wants to ask more questions. Set to True if they want to continue (yes, sure, more). Set to False if they're done (no, that's all, I'm finished)."
-        # # using a simple description:
-        description: "Whether the user wants to continue with more questions (true/false)."
+      - id: check_more_questions
+        collect: more_questions
+        description: "Check if the student has more questions or wants to continue the session."
         ask_before_filling: true
         utter: utter_ask_more_questions
         next:
           - if: not slots.more_questions
-            then: 
+            then:
               - link: goodbye_flow
-          - else: END
+          - else: 
+              - call: followup_advice_flow
+                next: check_more_questions
+
+
+  # Handles any follow-up questions about previously given advice.
+  followup_advice_flow:
+    name: Follow-up Career Questions
+    description: >
+      Address any clarifications or deeper questions about the career advice provided.
+
+    steps:
+      - collect: followup_question
+        description: "Ask what the student wants clarified or to discuss further."
+        utter: utter_ask_followup_question
+
+      - action: action_followup_career_advice
+        next: END
+
+      # - collect: more_questions
+      #   description: "Check if the student has more questions or wants to continue the session."
+      #   ask_before_filling: true
+      #   utter: utter_ask_more_questions
+      #   next:
+      #     - if: not slots.more_questions
+      #       then:
+      #         - link: goodbye_flow
+      #     - else: 
+      #         - link: followup_advice_flow

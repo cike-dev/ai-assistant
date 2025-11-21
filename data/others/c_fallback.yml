@@ -1,6 +1,9 @@
 flows:
   fallback:
-    description: Handles queries that don't match any business flow, attempts retrieval, and escalates to mental health support if needed.
+    description: >
+      Handles queries that don't match any business flow, attempts retrieval, 
+      and escalates to mental health support if needed.
+
     steps:
       - action: action_trigger_search
         next:
@@ -24,3 +27,4 @@ flows:
 
       - id: end_fallback
         action: utter_end_fallback      
+        

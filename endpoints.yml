@@ -4,8 +4,45 @@
 # https://rasa.com/docs/rasa-pro/production/model-storage#fetching-models-from-a-server
 
 #models:
-#  url: http://my-server.com/models/default_core@latest
-#  wait_time_between_pulls:  10   # [optional](default: 100)
+  # url: http://my-server.com/models/default_core@latest
+  # wait_time_between_pulls:  10   # [optional](default: 100)
+
+
+# Tracker store which is used to store the conversations.
+# By default the conversations are stored in memory.
+# https://rasa.com/docs/rasa-pro/production/tracker-stores
+
+#tracker_store:
+  #  type: redis
+  #  url: <host of the redis instance, e.g. localhost>
+  #  port: <port of your redis instance, usually 6379>
+  #  db: <number of your database within redis, e.g. 0>
+  #  password: <password used for authentication>
+  #  use_ssl: <whether or not the communication is encrypted, default false>
+
+#tracker_store:
+  #  type: mongod
+  #  url: <url to your mongo instance, e.g. mongodb://localhost:27017>
+  #  db: <name of the db within your mongo instance, e.g. rasa>
+  #  username: <username used for authentication>
+  #  password: <password used for authentication>
+
+# Event broker which all conversation events should be streamed to.
+# https://rasa.com/docs/rasa-pro/production/event-brokers
+
+# event_broker:
+  # url: localhost
+  # username: username
+  # password: password
+  # queue: queue
+
+# # Tracing for collecting performance metrics data.
+# tracing:
+#   type: jaeger
+#   host: localhost
+#   port: 14250
+#   service_name: rasa
+#   sync_export: ~
 
 # Server which runs your custom actions.
 # https://rasa.com/docs/rasa-pro/concepts/custom-actions
@@ -13,50 +50,68 @@
 action_endpoint:
   actions_module: "actions"
 
-# Tracker store which is used to store the conversations.
-# By default the conversations are stored in memory.
-# https://rasa.com/docs/rasa-pro/production/tracker-stores
-
-#tracker_store:
-#    type: redis
-#    url: <host of the redis instance, e.g. localhost>
-#    port: <port of your redis instance, usually 6379>
-#    db: <number of your database within redis, e.g. 0>
-#    password: <password used for authentication>
-#    use_ssl: <whether or not the communication is encrypted, default false>
-
-#tracker_store:
-#    type: mongod
-#    url: <url to your mongo instance, e.g. mongodb://localhost:27017>
-#    db: <name of the db within your mongo instance, e.g. rasa>
-#    username: <username used for authentication>
-#    password: <password used for authentication>
-
-# Event broker which all conversation events should be streamed to.
-# https://rasa.com/docs/rasa-pro/production/event-brokers
-
-#event_broker:
-#  url: localhost
-#  username: username
-#  password: password
-#  queue: queue
-
-
-
 # The lines below activate contextual rephrasing, using the default OpenAI language model.
 # Ensure the OPENAI_API_KEY is set to prevent any missing API key errors.
 # For more details, refer to the documentation:
 # https://rasa.com/docs/rasa-pro/concepts/contextual-response-rephraser
 
 # To enable the rephraser, remove the comment symbols in the lines below.
-# nlg:
-#   type: rephrase
-#   llm:
-#     model_group: gemini_llm_01
-#   prompt_template: prompts/rephraser.jinja2
-#   rephrase_all: False 
-#   summarize_history: False 
+nlg:
+  type: rephrase
+  llm:
+    model_group: gemini_rephraser
+  prompt_template: prompts/rephraser.jinja2
+  rephrase_all: False 
+  summarize_history: False 
 
+model_groups:
+  - id: gemini_rephraser
+    models:
+      - provider: gemini
+        model: gemini-2.5-flash
+        api_key: ${GEMINI_REPHRASER}
+
+  - id: gemini_pipeline
+    models:
+      - provider: gemini
+        model: gemini-2.5-flash
+        api_key: ${GEMINI_PIPELINE}  # Optional, set as env variable or here
+        # request_timeout: 20
+
+  - id: gemini_pipeline_embed
+    models:
+      - provider: gemini
+        # model: gemini-embedding-001
+        model: embedding-gecko-001
+        api_key: ${GEMINI_PIPELINE}  # Optional, set as env variable or here
+        # request_timeout: 20
+
+  - id: gemini_policy
+    models:
+      - provider: gemini
+        model: gemini-2.5-flash
+        api_key: ${GEMINI_POLICY}
+
+  - id: gemini_policy_embed
+    models:
+      - provider: gemini
+        # model: gemini-embedding-001
+        model: embedding-gecko-001
+        api_key: ${GEMINI_POLICY}
+
+  - id: mistral_llm
+    models:
+      - provider: mistral
+        model: mistral-small-latest
+        api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
+        # request_timeout: 20
+  
+  - id: mistral_rag
+    models:
+      - provider: mistral
+        model: mistral-embed
+        api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
+        # request_timeout: 20
 
 
 # model_groups:
@@ -83,52 +138,4 @@ action_endpoint:
   #       api_base: "http://localhost:11434"  # default ollama api
   #       # to use this model group, ensure this model is running in ollama
   #       request_timeout: 20
-
-model_groups:
-  - id: gemini_llm_01
-    models:
-      - provider: gemini
-        model: gemini-2.5-flash
-        api_key: ${GEMINI_API_KEY}  # Optional, set as env variable or here
-        # request_timeout: 20
-
-  - id: gemini_embedding_01
-    models:
-      - provider: gemini
-        model: gemini-embedding-001
-        api_key: ${GEMINI_API_KEY}  # Optional, set as env variable or here
-        # request_timeout: 20
-
-  - id: gemini_llm_02
-    models:
-      - provider: gemini
-        model: gemini-2.5-flash
-        api_key: ${GEMS}
-
-  - id: gemini_embedding_02
-    models:
-      - provider: gemini
-        model: gemini-embedding-001
-        api_key: ${GEMS}
-
-  - id: mistral_llm
-    models:
-      - provider: mistral
-        model: mistral-small-latest
-        api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
-        # request_timeout: 20
-  
-  - id: mistral_embedding
-    models:
-      - provider: mistral
-        model: mistral-embed
-        api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
-        # request_timeout: 20
-
-# vector_store:
-#   # For Faiss (in-memory, local)
-#   type: "faiss"
-  
-  # Add retrieval files to /docs, in .txt format
-  # For Milvus or Qdrant, add host, port, collection, etc.
   

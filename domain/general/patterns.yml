@@ -1,0 +1,47 @@
+slots: 
+  example_questions:
+    type: text
+    initial_value: |
+      - What courses does the Faculty of Science offer?
+      - How do I contact the IT support team?
+      - What jobs can I get with a degree in Computer Science?
+      - Can you suggest career paths for business students?
+    mappings:
+      - type: controlled
+
+  agent_name:
+    type: text
+    initial_value: "Wolvina"
+    # initial_value: "WolvAI"
+    mappings:
+      - type: controlled
+      
+responses:
+  utter_more_help_needed_handoff_pattern:
+    - text: "Please hold on while I connect you to our expert 📲"
+  
+  utter_connect_to_human:
+    - text: "Let me connect you to [[school advisors]]. They will help you further!"
+  
+  utter_cannot_handle:
+    - text: "I’m sorry, I can’t help with that."
+      metadata:
+        rephrase: True 
+
+  utter_no_relevant_answer_found:
+    - text: I’m sorry, I can’t help with that.
+      metadata:
+        rephrase: True
+
+  utter_greeting:
+    - text: |
+        Hi there! I'm {agent_name} 🎓 — your AI buddy on campus.  
+        I can help you with **general school information** or offer **career advice** for your future!  
+
+        Here are a few things you can ask me:
+        {example_questions}
+
+        How can I help you today?
+      
+      metadata:
+        rephrase: True

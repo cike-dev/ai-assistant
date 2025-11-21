@@ -1,0 +1,231 @@
+/* ===============================
+   Wolvina Assistant Chat Styles
+   =============================== */
+
+:root {
+    --user-bg: #005c4b;
+    --bot-bg: #202c33;
+    --timestamp: #8696a0;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --text-light: #e9edef;
+}
+
+/* === Base layout === */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent full-page scroll */
+    background-color: #0b141a;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+.stApp {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    background-color: #0b141a !important;
+}
+
+/* === Header pinned at top === */
+header, .stMarkdown:first-child {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #0b141a !important;
+    padding: 16px 20px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* === Scrollable chat area === */
+.chat-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #0b141a;
+    padding: 80px 12px 100px; /* top space for header, bottom for input */
+    margin-top: 60px; /* ensures chat starts below header */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Custom scrollbar */
+.chat-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-scroll-area::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+/* === Message bubbles === */
+.message-group {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    margin: 4px 0;
+    align-items: flex-start;
+}
+
+.user-group {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 7.5px;
+    position: relative;
+    word-wrap: break-word;
+    max-width: 90%;
+    box-shadow: 0 1px 0.5px var(--shadow);
+    animation: fadeIn 0.3s;
+    min-width: 50px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bot-message {
+    background-color: var(--bot-bg);
+    color: var(--text-light);
+    border-top-left-radius: 0;
+    margin-right: auto;
+}
+
+.user-message {
+    background-color: var(--user-bg);
+    color: var(--text-light);
+    border-top-right-radius: 0;
+    margin-left: auto;
+}
+
+.timestamp {
+    font-size: 0.65rem;
+    color: var(--timestamp);
+    margin: 2px 8px;
+    align-self: flex-end;
+    white-space: nowrap;
+}
+
+/* === Quick-reply buttons === */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+}
+
+.stButton>button {
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+    background-color: #1f2c33 !important;
+    color: #00a884 !important;
+    border: 1px solid #8696a0 !important;
+    border-radius: 18px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+
+.stButton>button:hover {
+    background-color: #2a3942 !important;
+    border-color: #075e54 !important;
+    color: #25d366 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* === Input area pinned to bottom === */
+.stForm {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #1f2c33;
+    padding: 8px 16px;
+    border-top: 1px solid #2a3942;
+}
+
+.stForm > div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background-color: #2a3942 !important;
+    border-radius: 20px !important;
+    padding: 8px 16px !important;
+    border: 1px solid #8696a0 !important;
+}
+
+/* Input styling */
+.stTextInput {
+    flex-grow: 1 !important;
+    margin-bottom: 0 !important;
+}
+.stTextInput > div > div {
+    background-color: transparent !important;
+}
+.stTextInput > div > div > input {
+    color: white !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 8px 0 !important;
+}
+.stTextInput > div > div > input:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Submit (send) button */
+.stForm button[type="submit"] {
+    background-color: #00a884 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    min-width: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.stForm button[type="submit"]:hover {
+    background-color: #00d4a0 !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(0, 168, 132, 0.3) !important;
+}
+
+.stForm button[type="submit"]:active {
+    transform: scale(0.95) !important;
+}
+
+/* === Misc === */
+div[data-testid="InputInstructions"] {
+    display: none !important;
+}

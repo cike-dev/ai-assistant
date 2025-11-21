@@ -1,6 +1,23 @@
 version: "3.1"
 
 slots:
+  # Custom action (career_advice) related slots
+  last_career_summary:
+    type: text
+    mappings:
+      - type: controlled
+
+  advice_history: # i.e. last_career_summary + subsequent follow-ups
+    type: list
+    mappings:
+      - type: controlled
+
+  # career advising session slots
+  followup_question:
+    type: text
+    mappings:
+      - type: from_llm
+      
   student_name:
     type: text
     mappings:
@@ -89,73 +106,32 @@ responses:
   
   utter_ask_more_questions:
     - text: "Anything else on your mind? (career, classes, or just chat!)"
+
+  utter_ask_followup_question:
+    # - text: "Do you have a follow-up question or something you'd like to clarify about the advice?"
+    - text: "How does that sound? Feel free to ask for clarification or about any confusion regarding the advice I provided."
+      metadata:
+        rephrase: True
   
+  utter_fallback_advice:
+    - text: |
+        I'm having trouble accessing the latest career data right now, but let me share some general thoughts about {interest} in the UK market! 😊
+
+        Many students find that building strong Python and cloud skills really opens doors here. The UK tech scene is growing fast, and there are some great graduate schemes on platforms like TargetJobs and Prospects.
+
+        Have you had a chance to explore the university's Careers Service? They offer fantastic one-on-one guidance tailored specifically to Wolverhampton students!
+
+        What aspects of {interest} are you most curious about?
+      
+      metadata:
+        rephrase: True
+
   utter_goodbye_counselor:
     - text: "Thanks for chatting, {student_name}! Wishing you all the best on your journey. 😊"
 
-
-# responses:
-#   utter_ask_year_of_study:
-#     - text: "Which year are you in?"
-#       buttons:
-#         - title: "Freshman"
-#           payload: '/SetSlots(year_of_study=freshman)'
-#         - title: "Sophomore"
-#           payload: '/SetSlots(year_of_study=sophomore)'
-#         - title: "Junior"
-#           payload: '/SetSlots(year_of_study=junior)'
-#         - title: "Senior"
-#           payload: '/SetSlots(year_of_study=senior)'
-  
-#   utter_ask_has_internship:
-#     - text: "Have you done any internships so far?"
-#       buttons:
-#         - title: "Yes"
-#           payload: '/SetSlots(has_internship=true)'
-#         - title: "No"
-#           payload: '/SetSlots(has_internship=false)'
-
-#   utter_ask_student_name:
-#     - text: "Let's get started! May I know your name? 😊"
-  
-#   utter_greet_counselor:
-#     - text: "Nice to meet you, {student_name}! I'm here to help you plan your career path."
-  
-#   utter_ask_current_major:
-#     - text: "What are you studying right now? (e.g., Computer Science, Biology)"
-  
-#   # utter_ask_year_of_study:
-#   #   - text: "Which year are you in? Freshman, sophomore, junior, or senior?"
-  
-#   utter_invalid_year:
-#     - text: "Please pick freshman, sophomore, junior, or senior."
-  
-#   utter_ask_career_interest:
-#     - text: "What kind of career or field are you interested in?"
-  
-#   utter_ask_gpa:
-#     - text: "If you're comfortable sharing, what's your current GPA?"
-  
-#   # utter_ask_has_internship:
-#   #   - text: "Have you done any internships so far?"
-  
-#   utter_ask_more_questions:
-#     - text: "Anything else on your mind? (career, classes, or just chat!)"
-  
-#   utter_goodbye_counselor:
-#     - text: "Thanks for chatting, {student_name}! Wishing you all the best on your journey. 😊"
-  
-#   utter_advice_core:
-#     - text: "{advice_text}"
-  
-#   utter_encourage_human:
-#     - text: "If you want to discuss your goals further, I'm happy to help or connect you with a real career adviser!"
-  
-#   utter_cite_sources:
-#     - text: "Sources: {sources_list}"
-
 actions:
   - action_give_career_advice
+  - action_followup_career_advice
 
 session_config:
   session_expiration_time: 60
@@ -165,6 +141,24 @@ session_config:
 
 
 
+# responses:  
+  # utter_invalid_year:
+  #   - text: "Please pick freshman, sophomore, junior, or senior."
+  
+  # utter_ask_more_questions:
+  #   - text: "Anything else on your mind? (career, classes, or just chat!)"
+  
+  # utter_goodbye_counselor:
+  #   - text: "Thanks for chatting, {student_name}! Wishing you all the best on your journey. 😊"
+  
+  # utter_advice_core:
+  #   - text: "{advice_text}"
+  
+  # utter_encourage_human:
+  #   - text: "If you want to discuss your goals further, I'm happy to help or connect you with a real career adviser!"
+  
+  # utter_cite_sources:
+  #   - text: "Sources: {sources_list}"
 
 
 

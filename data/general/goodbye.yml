@@ -1,0 +1,15 @@
+flows:
+  goodbye_flow:
+    description: Handle goodbye and end session
+    steps:
+      - collect: confirm_goodbye
+        next:
+          - if: slots.confirm_goodbye
+            then:
+              - action: utter_goodbye
+              - call: leave_feedback
+              - action: action_restart
+                next: END
+          - else:
+              - action: utter_continue
+                next: END
