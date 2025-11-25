@@ -13,7 +13,7 @@
 # from rasa_sdk.events import SlotSet
 # from actions.general.logger_utils import get_logger
 
-# logger = get_logger("Career Advice action")
+# logger = get_logger(__name__)
 
 # class ActionGiveCareerAdvice(Action):
 #     def __init__(self) -> None:

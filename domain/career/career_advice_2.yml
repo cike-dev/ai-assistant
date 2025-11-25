@@ -1,0 +1,238 @@
+version: "3.1"
+
+actions:
+  - action_give_career_advice
+  - validate_career_advice
+
+slots:
+  # Custom action (career_advice) related slots
+  last_career_summary:
+    type: text
+    mappings:
+      - type: controlled
+
+  advice_history: # i.e. last_career_summary + subsequent follow-ups
+    type: list
+    mappings:
+      - type: controlled
+
+  user_query:
+    type: text
+    mappings:
+      - type: controlled
+
+  last_career_advice_full:
+    type: text
+    mappings:
+      - type: controlled
+
+  # career advising session slots
+  followup_question:
+    type: text
+    mappings:
+      - type: from_llm
+      
+  student_name:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  current_major:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  year_of_study:
+    # type: text
+    type: categorical
+    values: 
+      - first_year
+      - second_year
+      - third_year
+      - final_year
+      - not_specified
+    mappings:
+      - type: from_llm
+  
+  career_interest:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  gpa:
+    # type: float
+    type: text
+    mappings:
+      - type: from_llm
+  
+  has_internship:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  visa_status:
+    # type: text
+    type: categorical
+    values: 
+      - domestic
+      - international
+      - not_specified
+    mappings:
+      - type: from_llm
+
+  more_questions:
+    type: bool
+    # type: text
+    mappings:
+      - type: from_llm
+  
+  # Goodbye detection slot
+  user_wants_to_end:
+    type: bool
+    mappings:
+      - type: from_llm
+
+  want_detailed_session:
+    type: bool
+    mappings:
+      - type: from_llm
+  
+  user_followup_input:
+    type: text
+    mappings:
+      - type: from_llm
+
+  needs_interest_clarification:
+    type: bool
+    mappings:
+      - type: controlled
+
+responses:
+  utter_ask_student_name:
+    # - text: "Let's get started! May I know your name? 😊"
+    - text: "Let's get started! May I know your name? (or just say 'skip' if you'd prefer not to share) 😊"
+      metadata:
+        rephrase: True
+    - text: "What should I call you?"
+      metadata:
+        rephrase: True
+    - text: "Could you tell me your name?"
+      metadata:
+        rephrase: True
+  
+  utter_greet_counselor:
+    - text: "Nice to meet you, {student_name}! I'm here to help you plan your career path."
+  
+  utter_ask_current_major:
+    - text: "What are you studying right now? (e.g., Computer Science, Biology)"
+  
+  utter_ask_year_of_study:
+    - text: "Which year are you in? (You can skip this if you prefer)"
+      buttons:
+        - title: "First Year"
+          payload: "/SetSlots(year_of_study=first_year)"
+        - title: "Second Year"
+          payload: "/SetSlots(year_of_study=second_year)"
+        - title: "Third Year"
+          payload: "/SetSlots(year_of_study=third_year)"
+        - title: "Final Year"
+          payload: "/SetSlots(year_of_study=final_year)"
+        - title: "Prefer not to say"
+          payload: "/SetSlots(year_of_study=not_specified)"
+  
+  utter_ask_career_interest:
+    - text: "What kind of career or field are you interested in?"
+  
+  utter_ask_gpa:
+    # - text: "If you're comfortable sharing, what's your current GPA?"
+    - text: "If you're comfortable sharing, what's your current GPA? (or say 'skip')"
+      buttons:
+        - title: "Prefer not to say"
+          payload: "/SetSlots(gpa=not_provided)"
+  
+  utter_ask_has_internship:
+    - text: "Have you done any internships so far? (optional)"
+      buttons:
+        - title: "Yes"
+          payload: "/SetSlots(has_internship=true)"
+        - title: "No"
+          payload: "/SetSlots(has_internship=false)"
+        - title: "Prefer not to say"
+          payload: "/SetSlots(has_internship=null)"
+  
+  utter_ask_visa_status:
+    - text: "Are you a UK/EU student or international? (This helps with visa-related advice)"
+      buttons:
+        - title: "UK/EU Domestic"
+          payload: "/SetSlots(visa_status=domestic)"
+        - title: "International"
+          payload: "/SetSlots(visa_status=international)"
+        - title: "Skip"
+          payload: "/SetSlots(visa_status=not_specified)"
+  
+  
+  utter_fallback_advice:
+    - text: |
+        I'm having trouble accessing the latest career data right now, but let me share some general thoughts about {interest} in the UK market! 😊
+
+        Many students find that building strong Python and cloud skills really opens doors here. The UK tech scene is growing fast, and there are some great graduate schemes on platforms like TargetJobs and Prospects.
+
+        Have you had a chance to explore the university's Careers Service? They offer fantastic one-on-one guidance tailored specifically to Wolverhampton students!
+
+        What aspects of {interest} are you most curious about?
+      
+      metadata:
+        rephrase: True
+
+  # For post-advice utterances/follow-ups
+  utter_advice_given_awaiting_response:
+    - text: "Hope that helps! Let me know if you have any other questions. 😊"
+      metadata:
+        rephrase: True
+    - text: "Feel free to ask if you need any clarification or have more questions!"
+      metadata:
+        rephrase: True     
+    - text: "Does that answer your question? Feel free to ask more!"
+      metadata:
+        rephrase: True
+    - text: "Anything else you'd like to know about?"
+      metadata:
+        rephrase: True   
+
+  utter_goodbye_counselor:
+    - text: "Thanks for chatting, {student_name}! Wishing you all the best on your journey. 😊"
+      metadata:
+        rephrase: True
+
+  # Quick Career Advice Utterances
+  utter_ask_career_interest_quick:
+    - text: "What career topic can I help you with right now?"
+  
+  utter_offer_detailed_session:
+    - text: "Would you like a more detailed career planning session where I ask a few questions to give you personalized advice?"
+      buttons:
+        - title: "Yes, let's do that"
+          payload: "/SetSlots(want_detailed_session=true)"
+        - title: "No, this is enough"
+          payload: "/SetSlots(want_detailed_session=false)"    
+
+  # Acknowledgment for corrections
+  utter_correction_acknowledged:
+    - text: "Got it, I've updated that. 👍"
+      metadata:
+        rephrase: True
+    - text: "No problem, I've corrected that information."
+      metadata:
+        rephrase: True    
+  
+  utter_clarify_interest:
+    - text: "I'd love to help! Could you tell me a bit more about what career area interests you? (e.g., tech, healthcare, finance, creative industries)"
+      metadata:
+        rephrase: True
+
+session_config:
+  session_expiration_time: 1440  # 24 hours (in minutes)
+  carry_over_slots_to_new_session: true
+
+
+

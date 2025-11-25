@@ -28,3 +28,23 @@ flows:
       - intent: session_start
     steps:
       - action: utter_greeting
+
+patterns:
+  chitchat:
+    - user: "how are you"
+      assistant: "I'm doing great, thanks for asking! How can I help you today?"
+    
+    - user: "thanks|thank you|thx"
+      assistant: "You're welcome! Happy to help."
+    
+    - user: "cool|nice|awesome|great"
+      assistant: "Glad you think so! Anything else I can help with?"
+    
+    - user: "lol|haha|😂"
+      assistant: "😊"
+    
+    - user: "what's your name"
+      assistant: "I'm your career advisor assistant! I'm here to help you explore career paths."
+    
+    - user: "can you help me|help"
+      assistant: "Absolutely! I can help you with career advice, internship guidance, CV tips, and more. What would you like to explore?"

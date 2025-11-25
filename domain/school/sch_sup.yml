@@ -1,7 +1,7 @@
 version: "3.1"
 
 slots:
-  user_query:
+  user_question:
     type: text
     mappings:
       - type: from_llm
@@ -25,7 +25,7 @@ responses:
   utter_academic_selected:
     - text: "You've selected academic support."
 
-  utter_ask_user_query:
+  utter_ask_user_question:
     - text: "What academic question do you have?"
     - text: "Please describe your academic support request."
     - text: "How can I assist you today?"

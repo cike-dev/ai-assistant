@@ -82,7 +82,7 @@ model_groups:
     models:
       - provider: gemini
         # model: gemini-embedding-001
-        model: embedding-gecko-001
+        model: gemini-embedding-001
         api_key: ${GEMINI_PIPELINE}  # Optional, set as env variable or here
         # request_timeout: 20
 
@@ -96,7 +96,7 @@ model_groups:
     models:
       - provider: gemini
         # model: gemini-embedding-001
-        model: embedding-gecko-001
+        model: gemini-embedding-001
         api_key: ${GEMINI_POLICY}
 
   - id: mistral_llm

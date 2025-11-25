@@ -14,7 +14,7 @@
 
 
 # # Initialize a logger for this global setup block
-# logger = get_logger("Career Advice action")
+# logger = get_logger(__name__)
 
 
 # class ActionGiveCareerAdvice(Action):

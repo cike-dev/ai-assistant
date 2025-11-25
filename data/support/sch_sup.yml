@@ -7,10 +7,10 @@ flows:
     steps:
       - action: utter_academic_selected
 
-      - id: collect_user_query
-        collect: user_query
+      - id: collect_user_question
+        collect: user_question
         description: The student's academic question
-        utter: utter_ask_user_query
+        utter: utter_ask_user_question
         next: trigger_search
 
       - id: trigger_search
@@ -34,7 +34,7 @@ flows:
         utter: utter_ask_followup_choice
         next:
           - if: slots.followup_choice == "new_question"
-            then: collect_user_query
+            then: collect_user_question
 
           - if: slots.followup_choice == "handoff"
             then: escalate_to_human
