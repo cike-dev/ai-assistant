@@ -2,10 +2,7 @@
 agent:
   name: data_retrieval_agent
   protocol: RASA
-  description: > 
-    Retrieves specialized information about University of Wolverhampton campus facilities,
-    services, locations, and resources when the main knowledge base doesn't have the answer.
-    Uses real-time data to provide accurate, current information about campus-specific queries.
+  description: "Retrieves specialized information about University of Wolverhampton campus facilities, services, locations, and resources when the main knowledge base doesn't have the answer. Uses real-time data to provide accurate, current information about campus-specific queries."
 
 
 # ReAct-specific configuration
@@ -16,7 +13,7 @@ configuration:
   prompt_template: sub_agents/school_info_agent/prompt_template.jinja2 # Optional: prompt template file
   include_date_time: true 
   timezone: "Europe/London" 
-  # module: "sub_agents.school_info_agent.tavily_agent.TavilySearchAgent"  # Optional: custom module for sub agent customization
+  # module: "sub_agents.school_info_agent.SchoolInfoSearchAgent"  # Optional: custom module for sub agent customization
 
 
 # MCP server connections

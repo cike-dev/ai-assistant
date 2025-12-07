@@ -61,6 +61,7 @@ policies:
 
   - name: EnterpriseSearchPolicy
     check_relevancy: true
+    citation_enabled: true
     vector_store: 
       type: "faiss"
       source: "./docs"

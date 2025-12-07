@@ -45,12 +45,12 @@ flows:
     steps:
       - action: utter_trying_specialized_search
       - call: data_retrieval_agent
-        mcp_server: career_search
-        mapping:
-          input:
-            - param: query
-              slot: user_question
-          output:
-            - slot: specialized_result
-              value: result.structuredContent.extracted_pages
+        # mcp_server: career_search
+        # mapping:
+        #   input:
+        #     - param: query
+        #       slot: user_question
+        #   output:
+        #     - slot: specialized_result
+        #       value: result.structuredContent.extracted_pages
       - action: utter_specialized_result

@@ -51,7 +51,6 @@ def search_uk_career_info(
         response = tavily.search(
             query=enhanced_query,
             search_depth="advanced",
-            country="united kingdom",
             include_answer=True,
             include_raw_content=False,
             max_results=8
@@ -93,18 +92,17 @@ def extract_wlv_campus_info(query: str) -> Dict[str, Any]:
 
         response = tavily.search(
             query=enhanced_query,
-            search_depth="advanced",
-            country="united kingdom",
-            include_domains="wlv.ac.uk",
+            search_depth="basic",
+            include_domains=["wlv.ac.uk"],
             include_raw_content=True,  # Get full content for RAG
-            max_results=10
+            max_results=5
         )
 
         results = response.get("results", [])
         extracted_content = [
             {
-                "title": r["title"],
-                "url": r["url"],
+                # "title": r["title"],
+                # "url": r["url"],
                 "content": r.get("content", "")
             }
             for r in results if r.get("content")

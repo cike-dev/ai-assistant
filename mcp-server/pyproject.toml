@@ -16,7 +16,7 @@ dependencies = [
     "uvicorn[standard]",
     "pydantic",
 ]
-
+uv pip install mcp[cli] mcp google-genai tavily-python
 [tool.setuptools]
 zip-safe = false
 include-package-data = true
