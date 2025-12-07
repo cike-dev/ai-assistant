@@ -29,6 +29,19 @@ flows:
     steps:
       - action: utter_greeting
 
+  # Fallback for EnterpriseSearch
+  pattern_cannot_handle:
+    description: Handle when Enterprise Search cannot find relevant answers
+    steps:
+      - noop: true
+        next:
+          - if: context.reason is "cannot_handle_no_relevant_answer"
+            then:
+              - link: specialized_search_flow
+          - else:
+              - action: utter_cannot_handle
+                next: END
+
 patterns:
   chitchat:
     - user: "how are you"
@@ -44,7 +57,7 @@ patterns:
       assistant: "😊"
     
     - user: "what's your name"
-      assistant: "I'm your career advisor assistant! I'm here to help you explore career paths."
+      assistant: "My name is {agent_name}, I'm your career advisor assistant! I'm here to help you explore career paths."
     
     - user: "can you help me|help"
       assistant: "Absolutely! I can help you with career advice, internship guidance, CV tips, and more. What would you like to explore?"

@@ -11,3 +11,7 @@ actions\__pycache__/*
 .env
 .venv
 .venv/*
+.rasa-env
+.rasa-env/*
+.mcp-env
+.mcp-env/*

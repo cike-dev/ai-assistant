@@ -1,0 +1,20 @@
+// {
+// 	"folders": [
+// 		{
+// 			"path": "."
+// 		}
+// 	],
+// 	"settings": {}
+// }
+
+{
+  "folders": [
+    { "path": "." },
+    // { "path": "mcp-server" }
+  ],
+  // "settings": {
+  //   ".mcp-server": {
+  //     "python.defaultInterpreterPath": "C:\\Users\\Offic\\OneDrive\\Desktop\\Projects\\ai-assistant\\.mcp-env\\Scripts\\python.exe"
+  //   }
+  // }
+}

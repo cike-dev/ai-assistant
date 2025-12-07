@@ -1,0 +1,30 @@
+# Basic agent information (required - see overview)
+agent:
+  name: career_guide 
+  protocol: RASA
+  description: "Career search assistant that provides current information about job markets, salaries, industries, and career paths"
+
+
+# ReAct-specific configuration
+configuration:
+  llm:  # Optional: Same format as other Rasa LLM configs
+    model_group: gemini_sub_agent
+    stream: true
+  prompt_template: sub_agents/career_agent/prompt_template.jinja2 # Optional: prompt template file
+  # timeout: 30  # Optional: seconds before timing out
+  # max_retries: 3  # Optional: connection retry attempts
+  include_date_time: true  # Optional: enable datetime in prompts (default: true)
+  timezone: "Europe/London"  # Optional: IANA timezone name (default: "UTC")
+  # module: "sub_agents.tavily_search.tavily_agent.TavilySearchAgent"  # Optional: custom module for sub agent customization
+
+
+# MCP server connections
+connections:
+  mcp_servers:
+    - name: career_search
+      include_tools:
+        - search_uk_career_info
+        - get_uk_company_info
+      exclude_tools:
+        - extract_wlv_campus_info
+        - ping

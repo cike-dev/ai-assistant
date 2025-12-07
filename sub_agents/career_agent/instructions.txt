@@ -1,0 +1,9 @@
+This is a Tavily search agent for the career counselling chatbot.
+
+It provides internet search capabilities using the following tools:
+- search_job_market_trends: Searches for job market trends in specific fields or industries
+- find_salary_data: Provides salary information for roles and job titles
+- get_industry_insights: Gives insights about industries and sectors
+- search_career_paths: Explores career advancement and path options
+
+Use this agent when you need current information from the internet about careers, salaries, job markets, or industries.

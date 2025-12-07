@@ -10,7 +10,7 @@
 
 # from actions.career.get_user_query import ActionGetUserQuery
 
-from actions.career.ai_adviser import ActionGiveCareerAdvice
+# from actions.career.ai_adviser import ActionGiveCareerAdvice
 
 from actions.school_support.sch_check_rag_success import ActionCheckRagResult
 

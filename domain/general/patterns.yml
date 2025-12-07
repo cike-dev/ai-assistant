@@ -11,11 +11,23 @@ slots:
 
   agent_name:
     type: text
-    initial_value: "Wolvina"
+    initial_value: "Golden Prime"
     # initial_value: "WolvAI"
     mappings:
       - type: controlled
-      
+  
+  # from pattern_cannot_handle
+  specialized_result:
+    type: text
+    mappings:
+      - type: controlled
+
+  # Slot for pattern cannot handle reason
+  pattern_cannot_handle_reason:
+    type: text
+    mappings:
+      - type: controlled
+
 responses:
   utter_more_help_needed_handoff_pattern:
     - text: "Please hold on while I connect you to our expert 📲"
@@ -35,13 +47,24 @@ responses:
 
   utter_greeting:
     - text: |
-        Hi there! I'm {agent_name} 🎓 — your AI buddy on campus.  
+        Hi there! I'm {agent_name} 🎓 — your campus buddy.  
         I can help you with **general school information** or offer **career advice** for your future!  
 
         Here are a few things you can ask me:
         {example_questions}
 
         How can I help you today?
-      
       metadata:
         rephrase: True
+
+# For the pattern_cannot_handle fallback
+  utter_trying_specialized_search:
+    - text: "Let me search our specialized campus database for that information."
+      metadata:
+        rephrase: True
+    - text: "I'll check our detailed campus information system for you."
+      metadata:
+        rephrase: True
+
+  utter_specialized_result:
+    - text: "{specialized_result}"

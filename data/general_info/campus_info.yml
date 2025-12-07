@@ -1,0 +1,56 @@
+flows:
+  uni_academic_support:
+    description: >
+      Helps students with academic questions about university policies, procedures,
+      and academic resources. Uses knowledge base search and specialized data retrieval
+      when needed.
+
+    steps:
+      # REMOVED: - action: utter_academic_selected
+
+      - id: collect_user_question
+        collect: user_question
+        description: The student's academic question about university matters
+        next: trigger_search
+
+      - id: trigger_search
+        action: action_trigger_search
+        next: offer_more_options
+
+        # In case info is not found from local DB, fallback to search_wlv sub-agent
+        # is handled by a pattern (pattern_cannot_handle) in general/patterns.yml
+
+      - id: offer_more_options
+        collect: followup_choice
+        description: >
+          Whether the user wants to ask another question, needs human help,
+          or is done. Fill with 'new_question', 'handoff', or 'done'.
+        next:
+          - if: slots.followup_choice == "new_question"
+            then: collect_user_question
+
+          - if: slots.followup_choice == "handoff"
+            then: escalate_to_human
+
+          - else: END
+
+      - id: escalate_to_human
+        action: utter_escalating_to_human
+        next: END
+
+
+# specialized agent Fallback for when action_trigger_search fails to finds
+  specialized_search_flow:
+    description: Handle specialized search using data retrieval agent
+    steps:
+      - action: utter_trying_specialized_search
+      - call: data_retrieval_agent
+        mcp_server: career_search
+        mapping:
+          input:
+            - param: query
+              slot: user_question
+          output:
+            - slot: specialized_result
+              value: result.structuredContent.extracted_pages
+      - action: utter_specialized_result

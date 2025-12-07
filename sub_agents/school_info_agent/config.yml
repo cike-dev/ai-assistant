@@ -1,0 +1,31 @@
+# Basic agent information (required - see overview)
+agent:
+  name: data_retrieval_agent
+  protocol: RASA
+  description: > 
+    Retrieves specialized information about University of Wolverhampton campus facilities,
+    services, locations, and resources when the main knowledge base doesn't have the answer.
+    Uses real-time data to provide accurate, current information about campus-specific queries.
+
+
+# ReAct-specific configuration
+configuration:
+  llm:  # Optional: Same format as other Rasa LLM configs
+    model_group: gemini_sub_agent
+    stream: true
+  prompt_template: sub_agents/school_info_agent/prompt_template.jinja2 # Optional: prompt template file
+  include_date_time: true 
+  timezone: "Europe/London" 
+  # module: "sub_agents.school_info_agent.tavily_agent.TavilySearchAgent"  # Optional: custom module for sub agent customization
+
+
+# MCP server connections
+connections:
+  mcp_servers:
+    - name: career_search
+      include_tools:
+        - extract_wlv_campus_info
+      exclude_tools:
+        - search_uk_career_info
+        - get_uk_company_info
+        - ping

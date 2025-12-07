@@ -1,93 +1,91 @@
-# flows:
-#   career_advice:
-#     name: Career Advising Session
-#     description: >
-#       Guide students through a friendly, personalized career counseling session, gathering context and providing tailored advice.
+flows:
+  career_advice:
+    name: Career Advising Session
+    description: >
+      Guide students through a friendly, personalized career counseling session.
+      Support natural corrections, follow-ups, and conversation endings.
     
-#     persisted_slots:
-#       - student_name
-#       - current_major
-#       - year_of_study
-#       - career_interest
-#       - gpa
-#       - has_internship
-#       - user_query
-#       # - followup_question
-#       # - more_questions
+    
+    persisted_slots:
+      - student_name
+      - current_major
+      - year_of_study
+      - career_interest
+      - gpa
+      - has_internship
+      - visa_status
+      # - last_career_summary 
+      # - advice_history  
+      # # - user_wants_to_end
 
-#     steps:
-#       - collect: student_name
-#         description: "Collect the student's full name."
-#         ask_before_filling: false
-#         utter: utter_ask_student_name
+    steps:
+     # Optional: Name
+      - collect: student_name
+        description: "Collect the student's name (optional)"
+        ask_before_filling: false
+        utter: utter_ask_student_name
 
-#       # - action: utter_greet_counselor
+      # Essential: Major
+      - collect: current_major
+        description: "Collect the student's current major"
+        ask_before_filling: false
+        utter: utter_ask_current_major
 
-#       - collect: current_major
-#         description: "Collect the student's current major or field of study."
-#         ask_before_filling: false
-#         utter: utter_ask_current_major
+      # Optional: Year
+      - collect: year_of_study
+        description: "Determine student's year (optional)"
+        ask_before_filling: false
+        utter: utter_ask_year_of_study
 
-#       - collect: year_of_study
-#         description: "Determine student's year: freshman, sophomore, junior, or senior."
-#         ask_before_filling: false
-#         utter: utter_ask_year_of_study
+      # Essential: Career Interest
+      - collect: career_interest
+        description: "Understand career interests"
+        ask_before_filling: false
+        utter: utter_ask_career_interest
 
-#       - collect: career_interest
-#         description: "Understand the student's career interests or areas they'd like to pursue."
-#         ask_before_filling: false
-#         utter: utter_ask_career_interest
+      # Optional: GPA (with explicit skip option)
+      - collect: gpa
+        description: "Optionally collect GPA"
+        ask_before_filling: false
+        utter: utter_ask_gpa
 
-#       - collect: gpa
-#         description: "Optionally collect the student's GPA."
-#         ask_before_filling: false
-#         utter: utter_ask_gpa
+      # Optional: Internship
+      - collect: has_internship
+        description: "Ask about internship experience (optional)"
+        ask_before_filling: false
+        utter: utter_ask_has_internship
 
-#       - collect: has_internship
-#         description: "Ask if the student has prior internship experience."
-#         ask_before_filling: false
-#         utter: utter_ask_has_internship
-
-#       - action: action_give_career_advice
-#       # - link: followup_advice_flow
-#       - call: followup_advice_flow
-#         next: check_more_questions
-
-#       - id: check_more_questions
-#         collect: more_questions
-#         description: "Check if the student has more questions or wants to continue the session."
-#         ask_before_filling: true
-#         utter: utter_ask_more_questions
-#         next:
-#           - if: not slots.more_questions
-#             then:
-#               - link: goodbye_flow
-#           - else: 
-#               - call: followup_advice_flow
-#                 next: check_more_questions
+      # Optional: Visa Status (only if relevant)
+      - collect: visa_status
+        description: "Ask about visa status for international students (optional)"
+        ask_before_filling: false
+        utter: utter_ask_visa_status
 
 
-#   # Handles any follow-up questions about previously given advice.
-#   followup_advice_flow:
-#     name: Follow-up Career Questions
-#     description: >
-#       Address any clarifications or deeper questions about the career advice provided.
+      # Call the academic advisor sub-agent directly
+      - call: career_guide
+        next: END  # ← Let CALM handle follow-ups
 
-#     steps:
-#       - collect: followup_question
-#         description: "Ask what the student wants clarified or to discuss further."
-#         utter: utter_ask_followup_question
 
-#       - action: action_followup_career_advice
-#         next: END
+      # # Give initial advice ONCE
+      # - action: action_give_career_advice
+      #   next: END  # ← Let CALM handle follow-ups
 
-#       # - collect: more_questions
-#       #   description: "Check if the student has more questions or wants to continue the session."
-#       #   ask_before_filling: true
-#       #   utter: utter_ask_more_questions
-#       #   next:
-#       #     - if: not slots.more_questions
-#       #       then:
-#       #         - link: goodbye_flow
-#       #     - else: 
-#       #         - link: followup_advice_flow
+
+  quick_career_advice:
+    name: Quick Career Advice
+    description: >
+      Provide immediate guidance with minimal questions for users who want quick help.
+    
+    steps:
+      - collect: career_interest
+        description: "What career topic do you need advice on?"
+        ask_before_filling: false
+        utter: utter_ask_career_interest_quick
+
+      # Call the academic advisor sub-agent directly
+      - call: career_guide
+        next: END
+      
+      # - action: action_give_career_advice
+      #   next: END  # ← Let CALM handle follow-ups

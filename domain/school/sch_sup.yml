@@ -1,50 +1,50 @@
-version: "3.1"
+# version: "3.1"
 
-slots:
-  user_question:
-    type: text
-    mappings:
-      - type: from_llm
+# slots:
+#   user_question:
+#     type: text
+#     mappings:
+#       - type: from_llm
 
-  rag_result_found:
-    type: bool
-    mappings:
-      - type: controlled
-      # - type: from_llm
+#   rag_result_found:
+#     type: bool
+#     mappings:
+#       - type: controlled
+#       # - type: from_llm
 
-  followup_choice:
-    type: categorical
-    values:
-      - new_question
-      - handoff
-      - end
-    mappings:
-      - type: from_llm  
+#   followup_choice:
+#     type: categorical
+#     values:
+#       - new_question
+#       - handoff
+#       - end
+#     mappings:
+#       - type: from_llm  
 
-responses:
-  utter_academic_selected:
-    - text: "You've selected academic support."
+# responses:
+#   utter_academic_selected:
+#     - text: "You've selected academic support."
 
-  utter_ask_user_question:
-    - text: "What academic question do you have?"
-    - text: "Please describe your academic support request."
-    - text: "How can I assist you today?"
+#   utter_ask_user_question:
+#     - text: "What academic question do you have?"
+#     - text: "Please describe your academic support request."
+#     - text: "How can I assist you today?"
 
-  utter_no_help_found:
-    - text: "Sorry, I couldn't find an answer to your question."
+#   utter_no_help_found:
+#     - text: "Sorry, I couldn't find an answer to your question."
 
-  utter_ask_followup_choice:
-    - text: "What would you like to do next? You can ask another question, end the conversation, or talk to a human."
-    - text: "Did that help? Would you like to ask another question or talk to someone for more help?"
-      buttons:
-        - title: "Ask another question"
-          payload: "/SetSlots(followup_choice=new_question)"
-        - title: "Talk to someone"
-          payload: "/SetSlots(followup_choice=handoff)"
-        - title: "End chat"
-          payload: "/SetSlots(followup_choice=end)"
+#   utter_ask_followup_choice:
+#     - text: "What would you like to do next? You can ask another question, end the conversation, or talk to a human."
+#     - text: "Did that help? Would you like to ask another question or talk to someone for more help?"
+#       buttons:
+#         - title: "Ask another question"
+#           payload: "/SetSlots(followup_choice=new_question)"
+#         - title: "Talk to someone"
+#           payload: "/SetSlots(followup_choice=handoff)"
+#         - title: "End chat"
+#           payload: "/SetSlots(followup_choice=end)"
 
-actions:
-  # - action_trigger_search
-  - action_check_rag_success
+# actions:
+#   # - action_trigger_search
+#   - action_check_rag_success
 

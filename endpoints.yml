@@ -99,6 +99,12 @@ model_groups:
         model: gemini-embedding-001
         api_key: ${GEMINI_POLICY}
 
+  - id: gemini_sub_agent
+    models:
+      - provider: gemini
+        model: gemini-2.5-flash
+        api_key: ${GEMINI_SUB_AGENT}
+
   - id: mistral_llm
     models:
       - provider: mistral
@@ -113,7 +119,14 @@ model_groups:
         api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
         # request_timeout: 20
 
+# MCP servers for sub-agents
+mcp_servers:
+  - name: career_search
+    url: http://127.0.0.1:8080/mcp
+    type: http
+    # api_key: ${TAVILY_API_KEY}
 
+    
 # model_groups:
   # - id: openai-gpt-4o
   #   models:
@@ -138,4 +151,3 @@ model_groups:
   #       api_base: "http://localhost:11434"  # default ollama api
   #       # to use this model group, ensure this model is running in ollama
   #       request_timeout: 20
-  

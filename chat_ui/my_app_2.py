@@ -20,7 +20,7 @@ if 'session_started' not in st.session_state:
 
 # --------------------- Show App title -------------------------- #
 # Streamlit UI
-st.title("Wolvina")
+st.title("Golden Prime")
 
 # --------------------------------------------------------- #
 # ------ Helper function that sends/receives messages ----- #

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-server"
+version = "0.1.0"
+description = "MCP server providing internet search tools using Tavily for career counselling"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp[cli]>=1.23.1",
+    "tavily-python",
+    "python-dotenv",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+]
+
+[tool.setuptools]
+zip-safe = false
+include-package-data = true
+packages = []
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "docs*"]
+
+[project.scripts]
+mcp-server = "main:main"
+search-api = "api:main"
