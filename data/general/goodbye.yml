@@ -1,15 +1,27 @@
 flows:
   goodbye_flow:
-    description: Handle goodbye and end session
+    description: Handle goodbye, optionally collect feedback, then reset the session
     steps:
       - collect: confirm_goodbye
+        description: >
+          Confirm the student really wants to end the conversation.
         next:
           - if: slots.confirm_goodbye
-            then:
-              - action: utter_goodbye
-              - call: leave_feedback
-              - action: action_restart
-                next: END
-          - else:
-              - action: utter_continue
-                next: END
+            then: run_goodbye_sequence
+          - else: continue_conversation
+
+      - id: run_goodbye_sequence
+        action: utter_goodbye
+        next: ask_for_feedback
+
+      - id: ask_for_feedback
+        call: leave_feedback
+        next: restart_session
+
+      - id: restart_session
+        action: action_restart
+        next: END
+
+      - id: continue_conversation
+        action: utter_continue
+        next: END

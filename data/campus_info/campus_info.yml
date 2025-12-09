@@ -20,12 +20,13 @@ flows:
 
       - id: trigger_search
         action: action_trigger_search
-        next: propose_next_step
-
-      # Bot proposes next step in a natural way, no explicit menu yet
-      - id: propose_next_step
-        action: utter_propose_next_step
+        # next: propose_next_step
         next: collect_followup_preference
+
+      # # Bot proposes next step in a natural way, no explicit menu yet
+      # - id: propose_next_step
+      #   action: utter_propose_next_step
+      #   next: collect_followup_preference
 
       # Here we still collect a structured choice, but the *utterance* is conversational
       - id: collect_followup_preference
@@ -41,7 +42,7 @@ flows:
           - if: slots.followup_choice == "handoff"
             then: suggest_contacts
 
-          - else: END
+          - else: goodbye_entry
 
       - id: suggest_contacts
         # reuse Enterprise Search to retrieve contact info
@@ -50,7 +51,10 @@ flows:
 
       - id: wrap_up_handoff
         action: utter_wrap_up_handoff
-        next: END
+        next: goodbye_entry
+
+      - id: goodbye_entry
+        link: goodbye_flow
 
   # Specialized agent fallback when the main search is not enough
   specialized_search_flow:

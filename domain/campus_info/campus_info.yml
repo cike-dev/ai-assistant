@@ -15,21 +15,31 @@ slots:
 
 
 responses:
+  utter_ask_user_question:
+    - text: "How may i help you?"
+      metadata:
+        rephrase: True
+
   utter_acknowledge_user_question:
     - text: >
         Got it, thanks for explaining that. Let me check what applies in your case.
 
-  utter_propose_next_step:
+  # utter_propose_next_step:
+  utter_ask_followup_choice:
     - text: >
         If you’d like, we can keep exploring this together,
         or I can point you to the most relevant university office or person
         who can help you further. What would you prefer?
-
+      metadata:
+        rephrase: True
+  
   utter_wrap_up_handoff:
     - text: >
         I’ve shared the contact details that should be most helpful for this situation.
         If anything is unclear when you reach out to them, you can always come back here
         and I’ll help you prepare what to ask.
+      metadata:
+        rephrase: True
 
 
 # responses:

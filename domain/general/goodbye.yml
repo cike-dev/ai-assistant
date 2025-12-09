@@ -19,8 +19,6 @@ responses:
           payload: "/SetSlots(confirm_goodbye=no)"
           
   utter_goodbye:
-    - text: "Thanks for stopping by — take care!"
-    - text: "Thanks for the chat. Have a great day!"
-    - text: "Catch you later! Feel free to reach out anytime."
-    - text: "Goodbye for now — I'm here if you need anything."
     - text: "Take care! If you have any other questions later, just ask."
+      metadata:
+        rephrase: True

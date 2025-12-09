@@ -1,16 +1,16 @@
 slots:
   feedback_rating:
     type: categorical
-    values: [thumbs_up, thumbs_down]
+    values:
+      - thumbs_up
+      - thumbs_down
     mappings:
       - type: from_llm
 
 responses:
 
   utter_ask_feedback_rating:
-    - text: |
-        Before you go, could you share how your experience with me was today?  
-        Your feedback helps improve our student support service. 💬
+    - text: "Before you go, was this helpful?"
       buttons:
         - title: "👍 Helpful"
           payload: "/SetSlots(feedback_rating=thumbs_up)"
@@ -20,24 +20,14 @@ responses:
 
   # --- Positive feedback ---
   utter_thankyou_positive:
-    - text: |
-        That’s wonderful to hear! 😊  
-        I’m really glad I could help. Thanks for your positive feedback — it means a lot to the team!
-    - text: |
-        Awesome! 🎉  
-        I’m happy you found the information useful. Thank you for taking a moment to share your thoughts!
-    - text: |
-        Great! 🌟  
-        I appreciate your feedback — it helps us keep making this assistant even better for students like you.
+    - text: "Great, glad I could help! Thanks for the feedback."
+      metadata:
+        rephrase: True
+
 
 
   # --- Negative feedback ---
   utter_thankyou_negative:
-    - text: |
-        Thanks for being honest. 🙏  
-        We’re always looking to improve how we support Wolverhampton students — your feedback really helps.
-    - text: |
-        I appreciate you letting me know.  
-        We’ll use your feedback to make future conversations more helpful and relevant. 💡
-    - text: |
-        Thanks for the honest input — I’ll pass that along so we can make the experience better for everyone. 🎓
+    - text: "Thanks for the honest feedback — it helps improve the support you get next time."
+      metadata:
+        rephrase: True
