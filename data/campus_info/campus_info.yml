@@ -1,18 +1,17 @@
 flows:
   uni_academic_support:
     description: >
-      Acts as a friendly academic guide for university students. 
-      Understands their academic questions about policies, procedures, deadlines, and learning resources, 
-      then explains answers clearly using internal systems and knowledge search. 
-      Can also suggest follow‑up questions or connect the student to a human if needed.
+      Acts as a friendly academic guide for university students.
+      Understands their academic questions about policies, procedures, deadlines, and learning resources,
+      then explains answers clearly using internal systems and knowledge search.
+      Can also naturally suggest follow‑up help or connect the student to a human advisor when appropriate.
 
     steps:
       - id: collect_user_question
         collect: user_question
         description: >
-          The student's academic question or concern about university matters 
+          The student's academic question or concern about university matters
           (e.g. exams, grading, enrollment, deadlines, or available support services).
-    
         next: acknowledge_question
 
       - id: acknowledge_question
@@ -21,40 +20,43 @@ flows:
 
       - id: trigger_search
         action: action_trigger_search
-        next: offer_more_options
+        next: propose_next_step
 
-      - id: offer_more_options
+      # Bot proposes next step in a natural way, no explicit menu yet
+      - id: propose_next_step
+        action: utter_propose_next_step
+        next: collect_followup_preference
+
+      # Here we still collect a structured choice, but the *utterance* is conversational
+      - id: collect_followup_preference
         collect: followup_choice
         description: >
-          Whether the student wants to ask another academic question, 
-          talk to a human, or end the conversation. 
-          Use 'new_question', 'handoff', or 'done'.
+          The student's preference after receiving an answer:
+          'new_question' to keep chatting, 'handoff' to get contact details
+          for a relevant university office or person, or 'done' to end.
         next:
           - if: slots.followup_choice == "new_question"
             then: collect_user_question
 
           - if: slots.followup_choice == "handoff"
-            then: announce_escalation
+            then: suggest_contacts
 
           - else: END
 
-      - id: announce_escalation
-        action: utter_escalating_to_human
-        next: escalate_to_human
+      - id: suggest_contacts
+        # reuse Enterprise Search to retrieve contact info
+        action: action_trigger_search   
+        next: wrap_up_handoff
 
-      - id: escalate_to_human
-        call: human_handoff
+      - id: wrap_up_handoff
+        action: utter_wrap_up_handoff
         next: END
 
-# specialized agent Fallback for when action_trigger_search fails to finds
+  # Specialized agent fallback when the main search is not enough
   specialized_search_flow:
     description: >
-      When the main academic search cannot fully answer the student’s question, 
-      use a specialized retrieval agent to look deeper into university data 
+      When the main academic search cannot fully answer the student’s question,
+      use a specialized retrieval agent to look deeper into university data
       and then explain the result in simple, student‑friendly language.
-    
     steps:
       - call: info_retrieval_agent
-      
-
-

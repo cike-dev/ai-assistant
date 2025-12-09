@@ -13,42 +13,40 @@ slots:
     mappings:
       - type: from_llm
 
-  # Slot to track RAG success (if you're using action_trigger_search)
-  rag_result_found:
-    type: bool
-    mappings:
-      - type: controlled
 
 responses:
-  utter_ask_user_question:
-    - text: "What's your academic question?"
-      metadata:
-        rephrase: True
-
-  utter_ask_followup_choice:
-    - text: "Would you like to ask another question, speak with a human advisor, or are you all set?"
-    - text: "What would you like to do next? Ask another question, get human help, or finish here?"
-
   utter_acknowledge_user_question:
-    - text: "Got it, let me check what the university says about that."
-      metadata:
-        rephrase: True
+    - text: >
+        Got it, thanks for explaining that. Let me check what applies in your case.
 
-  utter_escalating_to_human:
-    - text: "I'm connecting you with a human advisor who can better assist you. Please hold on."
-    - text: "Let me transfer you to one of our advisors for personalized help."
+  utter_propose_next_step:
+    - text: >
+        If you’d like, we can keep exploring this together,
+        or I can point you to the most relevant university office or person
+        who can help you further. What would you prefer?
 
-  # utter_offer_human_handoff:
-  #   - text: "Would you like me to connect you to a human advisor for more help?"
+  utter_wrap_up_handoff:
+    - text: >
+        I’ve shared the contact details that should be most helpful for this situation.
+        If anything is unclear when you reach out to them, you can always come back here
+        and I’ll help you prepare what to ask.
+
+
+# responses:
+  # utter_ask_user_question:
+  #   - text: "What's your academic question?"
   #     metadata:
   #       rephrase: True
 
-  # utter_transferring_to_human:
-  #   - text: "I'll connect you to a human advisor now and share the best contact details for your situation."
+  # utter_ask_followup_choice:
+  #   - text: "Would you like to ask another question, speak with a human advisor, or are you all set?"
+  #   - text: "What would you like to do next? Ask another question, get human help, or finish here?"
+
+  # utter_acknowledge_user_question:
+  #   - text: "Got it, let me check what the university says about that."
   #     metadata:
   #       rephrase: True
 
-  # utter_handoff_cancelled:
-  #   - text: "No problem, we can continue here. What else can I help you with?"
-  #     metadata:
-  #       rephrase: True
+  # utter_escalating_to_human:
+  #   - text: "I'm connecting you with a human advisor who can better assist you. Please hold on."
+  #   - text: "Let me transfer you to one of our advisors for personalized help."
