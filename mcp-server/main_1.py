@@ -109,7 +109,7 @@ def extract_wlv_campus_info(query: str) -> Dict[str, Any]:
         ]
 
         logger = get_logger("extract_wlv_campus_info")
-        logger.info(f"Extracted {len(extracted_content)} pages from wlv.ac.uk for query '{query}': {[page['title'] for page in extracted_content]}\n\n")
+        logger.info(f"Extracted {len(extracted_content)} pages from wlv.ac.uk for query '{query}': {[page['title'] for page in extracted_content]}\n")
         
         # Structured output for easy accessibility
         output = {
@@ -118,7 +118,7 @@ def extract_wlv_campus_info(query: str) -> Dict[str, Any]:
             "extracted_content": extracted_content,  # Full content for RAG
             "total_extracted": len(extracted_content)
         }
-        logger.info("Output sent to Rasa: \n \t{output} \n")
+        logger.info(f"Output sent to Rasa: \n \t{output} \n")
         return output
 
     except Exception as e:

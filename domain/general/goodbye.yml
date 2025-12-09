@@ -9,7 +9,9 @@ responses:
   utter_continue:
     - text: "Okay, let's continue. How can I help you?"
     - text: "Right, let's continue. Feel free to ask me anything"
-  
+      metadata:
+        rephrase: True
+        
   utter_ask_confirm_goodbye:
     - text: "Are you sure you want to end this conversation?"
       buttons:

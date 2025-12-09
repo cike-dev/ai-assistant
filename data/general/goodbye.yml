@@ -16,6 +16,7 @@ flows:
 
       - id: ask_for_feedback
         call: leave_feedback
+        action: utter_goodbye
         next: restart_session
 
       - id: restart_session
