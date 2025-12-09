@@ -1,33 +1,25 @@
 flows:
   greet_user:
-    description: Trigger this flow when the user greets the assistant, optionally combined with a question or support request. Greet the user, state the assistant's purpose, and guide them to academic or career support.
+    description: >
+      Trigger this flow when the user greets the assistant, optionally combined with a question or support request. 
+      Greet the user, state the assistant's purpose, and guide them to academic or career support.
+
     steps:
-      # - action: utter_greet_and_purpose
       - collect: support_type
-        description: The type of support the user needs (academic or career)
+        description: The type of support the user needs i.e. 'academic' or 'career'.
+        
         next:
           - if: slots.support_type == "academic"
             then: link_to_academic
+
           - if: slots.support_type == "career"
             then: link_to_career
-          - else: fallback_response
-          # - else: fallback_chitchat 
+            
+          - else: 
+            - link: goodbye_flow
 
       - id: link_to_academic
-        link: uni_academic_support  # Links to existing academic flow
+        link: uni_academic_support
 
       - id: link_to_career
-        # link: uni_career_guidance   # Links to existing career support flow
         link: career_advice
-
-      # - id: fallback_chitchat
-      #   link: pattern_chitchat
-
-      # NOTE: Patterns cannot be used as a target in link steps, except for 'pattern_human_handoff', 
-      #       which may be linked from both user-defined flows and other patterns.
-      #       'pattern_chitchat' may only be linked from other patterns.
-      # 
-
-      - id: fallback_response
-        action: utter_unrecognized_option
-        next: END

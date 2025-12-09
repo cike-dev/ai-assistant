@@ -20,7 +20,7 @@ responses:
 
   # --- Positive feedback ---
   utter_thankyou_positive:
-    - text: "Great, glad I could help! Thanks for the feedback."
+    - text: "Great, glad I could help! Thanks for the feedback. Bye!"
       metadata:
         rephrase: True
 
@@ -28,6 +28,6 @@ responses:
 
   # --- Negative feedback ---
   utter_thankyou_negative:
-    - text: "Thanks for the honest feedback — it helps improve the support you get next time."
+    - text: "Thanks for the feedback - I'll improve next time. bye."
       metadata:
         rephrase: True

@@ -1,5 +1,10 @@
-rasa-pro==3.14.1
+
 # mistralai
 # ddgs
-google-genai
-ipykernel 
+# ipykernel 
+mcp==1.22.0
+fastmcp==2.13.3
+tavily-python==0.7.14
+streamlit==1.52.0
+google-genai==1.53.0
+rasa-pro==3.14.1

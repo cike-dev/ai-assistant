@@ -69,18 +69,18 @@ model_groups:
   - id: gemini_rephraser
     models:
       - provider: gemini
-        model: gemini-2.5-flash
+        # model: gemini-2.5-flash
+        model: gemini-2.5-flash-lite
         api_key: ${GEMINI_REPHRASER}
         temperature: 0.3
 
   - id: gemini_pipeline
     models:
       - provider: gemini
-        model: gemini-2.5-flash
+        # model: gemini-2.5-flash
+        model: gemini-2.5-flash-lite
         api_key: ${GEMINI_PIPELINE}  # Optional, set as env variable or here
        
-  
-
   - id: gemini_pipeline_embed
     models:
       - provider: gemini
@@ -91,26 +91,28 @@ model_groups:
   - id: gemini_policy
     models:
       - provider: gemini
-        model: gemini-2.5-flash
+        # model: gemini-2.5-flash
+        model: gemini-2.5-flash-lite
         api_key: ${GEMINI_POLICY}
 
   - id: gemini_policy_embed
     models:
       - provider: gemini
-        # model: gemini-embedding-001
         model: gemini-embedding-001
         api_key: ${GEMINI_POLICY}
 
   - id: gemini_sub_agent_1
     models:
       - provider: gemini
-        model: gemini-2.5-flash
+        # model: gemini-2.5-flash
+        model: gemini-2.5-flash-lite
         api_key: ${GEMINI_SUB_AGENT_1}
 
   - id: gemini_sub_agent_2
     models:
       - provider: gemini
-        model: gemini-2.5-flash
+        # model: gemini-2.5-flash
+        model: gemini-2.5-flash-lite
         api_key: ${GEMINI_SUB_AGENT_2}
 
   - id: mistral_llm
