@@ -2,7 +2,10 @@
 agent:
   name: info_retrieval_agent
   protocol: RASA
-  description: "Retrieves specialized information about University of Wolverhampton campus facilities, services, locations, and resources when the main knowledge base doesn't have the answer. Uses real-time data to provide accurate, current information about campus-specific queries."
+  description: >
+    "Retrieves specialized information about University of Wolverhampton campus facilities, services, 
+    locations, and resources when the main knowledge base doesn't have the answer. Uses real-time data 
+    to provide accurate, current information about campus-specific queries."
 
 # ReAct-specific configuration
 configuration:
