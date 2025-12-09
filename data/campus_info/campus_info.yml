@@ -1,0 +1,60 @@
+flows:
+  uni_academic_support:
+    description: >
+      Acts as a friendly academic guide for university students. 
+      Understands their academic questions about policies, procedures, deadlines, and learning resources, 
+      then explains answers clearly using internal systems and knowledge search. 
+      Can also suggest follow‑up questions or connect the student to a human if needed.
+
+    steps:
+      - id: collect_user_question
+        collect: user_question
+        description: >
+          The student's academic question or concern about university matters 
+          (e.g. exams, grading, enrollment, deadlines, or available support services).
+    
+        next: acknowledge_question
+
+      - id: acknowledge_question
+        action: utter_acknowledge_user_question
+        next: trigger_search
+
+      - id: trigger_search
+        action: action_trigger_search
+        next: offer_more_options
+
+      - id: offer_more_options
+        collect: followup_choice
+        description: >
+          Whether the student wants to ask another academic question, 
+          talk to a human, or end the conversation. 
+          Use 'new_question', 'handoff', or 'done'.
+        next:
+          - if: slots.followup_choice == "new_question"
+            then: collect_user_question
+
+          - if: slots.followup_choice == "handoff"
+            then: announce_escalation
+
+          - else: END
+
+      - id: announce_escalation
+        action: utter_escalating_to_human
+        next: escalate_to_human
+
+      - id: escalate_to_human
+        call: human_handoff
+        next: END
+
+# specialized agent Fallback for when action_trigger_search fails to finds
+  specialized_search_flow:
+    description: >
+      When the main academic search cannot fully answer the student’s question, 
+      use a specialized retrieval agent to look deeper into university data 
+      and then explain the result in simple, student‑friendly language.
+    
+    steps:
+      - call: info_retrieval_agent
+      
+
+

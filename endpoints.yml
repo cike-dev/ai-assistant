@@ -64,27 +64,29 @@ nlg:
   rephrase_all: False 
   summarize_history: False 
 
+# Model groups for the different components 
 model_groups:
   - id: gemini_rephraser
     models:
       - provider: gemini
         model: gemini-2.5-flash
         api_key: ${GEMINI_REPHRASER}
+        temperature: 0.3
 
   - id: gemini_pipeline
     models:
       - provider: gemini
         model: gemini-2.5-flash
         api_key: ${GEMINI_PIPELINE}  # Optional, set as env variable or here
-        # request_timeout: 20
+       
+  
 
   - id: gemini_pipeline_embed
     models:
       - provider: gemini
-        # model: gemini-embedding-001
         model: gemini-embedding-001
         api_key: ${GEMINI_PIPELINE}  # Optional, set as env variable or here
-        # request_timeout: 20
+       
 
   - id: gemini_policy
     models:
@@ -99,25 +101,31 @@ model_groups:
         model: gemini-embedding-001
         api_key: ${GEMINI_POLICY}
 
-  - id: gemini_sub_agent
+  - id: gemini_sub_agent_1
     models:
       - provider: gemini
         model: gemini-2.5-flash
-        api_key: ${GEMINI_SUB_AGENT}
+        api_key: ${GEMINI_SUB_AGENT_1}
+
+  - id: gemini_sub_agent_2
+    models:
+      - provider: gemini
+        model: gemini-2.5-flash
+        api_key: ${GEMINI_SUB_AGENT_2}
 
   - id: mistral_llm
     models:
       - provider: mistral
         model: mistral-small-latest
         api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
-        # request_timeout: 20
+    
   
   - id: mistral_rag
     models:
       - provider: mistral
         model: mistral-embed
         api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
-        # request_timeout: 20
+    
 
 # MCP servers for sub-agents
 mcp_servers:

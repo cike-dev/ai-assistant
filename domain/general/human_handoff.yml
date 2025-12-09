@@ -19,6 +19,8 @@ responses:
           title: "Yes"
         - payload: "/SetSlots(confirm_human_handoff=False)"
           title: "No"
+      metadata:
+        rephrase: True
 
     - text: |
         It sounds like you might need to speak to a real staff member.  
@@ -28,30 +30,20 @@ responses:
           title: "Yes"
         - payload: "/SetSlots(confirm_human_handoff=False)"
           title: "No"
+      metadata:
+        rephrase: True
 
   utter_transferring_to_human:
     - text: |
         No problem — here’s who you can reach out to for further help. 📞
-
-  utter_handoff_cancelled:
-    - text: "No problem, let me know if you need anything else!"
-    - text: |
-        Alright, no worries! I’ll do my best to help you here instead. 💬
       metadata:
         rephrase: True
 
-actions: []
-  # - "action_human_handoff"
-
-
-
-
-
-
-
-
-
-
+  utter_handoff_cancelled:
+    - text: "No problem, let me know if you need anything else!"
+    - text: "Alright, no worries! I’ll do my best to help you here instead. 💬"
+      metadata:
+        rephrase: True
 
 
 # # In your academic support flow:

@@ -61,11 +61,9 @@ flows:
         ask_before_filling: false
         utter: utter_ask_visa_status
 
-
       # Call the academic advisor sub-agent directly
-      - call: career_guide
+      - call: career_guide_agent
         next: END  # ← Let CALM handle follow-ups
-
 
       # # Give initial advice ONCE
       # - action: action_give_career_advice
@@ -76,7 +74,7 @@ flows:
     name: Quick Career Advice
     description: >
       Provide immediate guidance with minimal questions for users who want quick help.
-    
+
     steps:
       - collect: career_interest
         description: "What career topic do you need advice on?"
@@ -84,7 +82,7 @@ flows:
         utter: utter_ask_career_interest_quick
 
       # Call the academic advisor sub-agent directly
-      - call: career_guide
+      - call: career_guide_agent
         next: END
       
       # - action: action_give_career_advice

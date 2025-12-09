@@ -101,19 +101,25 @@ def extract_wlv_campus_info(query: str) -> Dict[str, Any]:
         results = response.get("results", [])
         extracted_content = [
             {
-                # "title": r["title"],
-                # "url": r["url"],
+                "title": r["title"],
+                "url": r["url"],
                 "content": r.get("content", "")
             }
             for r in results if r.get("content")
         ]
 
         logger = get_logger("extract_wlv_campus_info")
-        logger.info(f"Extracted {len(extracted_content)} pages from wlv.ac.uk for query '{query}': \n\n === \n\n{extracted_content} \n\n === \n")
-        return {
-            "extracted_pages": extracted_content,
+        logger.info(f"Extracted {len(extracted_content)} pages from wlv.ac.uk for query '{query}': {[page['title'] for page in extracted_content]}\n\n")
+        
+        # Structured output for easy accessibility
+        output = {
+            "summary": f"Extracted {len(extracted_content)} pages of content from Wolverhampton University website for '{query}'.",
+            "key_facts": [f"{p['title']} → {p['url']}" for p in extracted_content],
+            "extracted_content": extracted_content,  # Full content for RAG
             "total_extracted": len(extracted_content)
         }
+        logger.info("Output sent to Rasa: \n \t{output} \n")
+        return output
 
     except Exception as e:
         raise ToolError(f"WLV content extraction failed: {str(e)}")

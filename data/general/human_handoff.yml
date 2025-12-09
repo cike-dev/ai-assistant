@@ -1,49 +1,34 @@
-version: "3.1"
-# flows:
-  # human_handoff:
-  #   description: >
-  #     When you can’t answer a question or the student wants personal assistance,
-  #     offer to connect them to the right university contact or support team.
-    
-  #   steps:
-  #     - collect: confirm_human_handoff
-  #       ask_before_filling: true
-  #       utter: utter_offer_human_handoff # yes|no
-        
-  #       next:
-  #         - if: slots.confirm_human_handoff # yes
-  #           then:
-  #             - action: utter_transferring_to_human
-  #             - action: action_human_handoff
-  #             # - action: action_trigger_search # optional: trigger search for contact info
-  #               next: END
-
-  #         - else: # no
-  #             - action: utter_handoff_cancelled
-  #               next: END
-
-
 flows:
   human_handoff:
     description: >
-      This flow assists users by retrieving the most relevant university contact information 
-      for their request using enterprise search (RAG). It confirms if the user wants to proceed, 
-      and, if so, fetches and displays the appropriate contact details from the knowledge base.
-    
-    
+      This flow retrieves the most relevant university contact information 
+      for the student's request using enterprise search (RAG) and presents 
+      the appropriate contact details from the knowledge base.
+
     steps:
-      - collect: confirm_human_handoff
-        ask_before_filling: true
-        utter: utter_offer_human_handoff # "Would you like me to connect you to someone for more help?"
+      - id: run_handoff_search
+        action: action_trigger_search   # e.g. fetch & show contact info
+        next: END
 
-        next:
-          - if: slots.confirm_human_handoff # yes
-            then:
-              # - action: action_human_handoff
-              - action: utter_transferring_to_human 
-              - action: action_trigger_search  # Shows the RAG answer (contact) to the user
-                next: END
+# flows:
+#   human_handoff:
+#     description: >
+#       This flow assists users by retrieving the most relevant university contact information 
+#       for their request using enterprise search (RAG). It confirms if the user wants to proceed, 
+#       and, if so, fetches and displays the appropriate contact details from the knowledge base.
+    
+#     steps:
+#       - collect: confirm_human_handoff
+#         ask_before_filling: true
+#         utter: utter_offer_human_handoff # "Would you like me to connect you to someone for more help?"
 
-          - else: # no
-              - action: utter_handoff_cancelled
-                next: END
+#         next:
+#           - if: slots.confirm_human_handoff # yes
+#             then:
+#               - action: utter_transferring_to_human 
+#               - action: action_trigger_search  # Shows the RAG answer (contact) to the user
+#                 next: END
+
+#           - else: # no
+#               - action: utter_handoff_cancelled
+#                 next: END

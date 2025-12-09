@@ -30,27 +30,23 @@ assistant_id: wlv_chat_assistant
 
 language: en
 
+# SearchReadyLLMCommandGenerator is better suited for EnterpriseSearch
+# it optimizes RAG-based knowledge retrieval and business flow accuracy 
+# better than CompactLLMCommandGenerator
+
+# NLG configs, powered by LLMs
 pipeline:
-  # SearchReadyLLMCommandGenerator is better suited for EnterpriseSearch
-  # it optimizes RAG-based knowledge retrieval and business flow accuracy 
-  # better than CompactLLMCommandGenerator
-  
   - name: SearchReadyLLMCommandGenerator
-    # prompt_template: prompts/command-generator.jinja2
     user_input:
       max_characters: 512 # default value: 420
     llm:
       model_group: gemini_pipeline # use LLM model_group ID defined in endpoints.yml
     flow_retrieval:
-      # active: false
-        # # if flows become complex and plenty, 
-        # # comment the line above and uncomment the block below
       turns_to_embed: 1
       should_embed_slots: true
-      num_flows: 20
+      num_flows: 5 # or 20
       embeddings:
         model_group: gemini_pipeline_embed  # Use embedding model id in endpoints.yml
-
 
 
 # Configuration for Rasa Core.
@@ -61,11 +57,11 @@ policies:
 
   - name: EnterpriseSearchPolicy
     check_relevancy: true
-    citation_enabled: true
+    # citation_enabled: true
     vector_store: 
       type: "faiss"
       source: "./docs"
-      threshold: 0.7
+      threshold: 0.6
     llm:
       model_group: mistral_llm  # LLM model id in endpoints.yml
     embeddings:
