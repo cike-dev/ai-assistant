@@ -143,12 +143,32 @@ def get_uk_company_info(company_name: str) -> Any:
 
         response = tavily.get_company_info(
             query=enhanced_query,
+            max_results=5,
             country="united kingdom"
         )
 
+        # Structured output for easy accessibility
+        # Response is a list of dicts with url, title, content, score
+        summary = "Company information retrieved from Tavily API."
+        key_facts = []
+        companies = response[:3]  # Top 3 results
+        for i, item in enumerate(companies):
+            key_facts.append(f"Result {i+1} Title: {item.get('title', 'N/A')}")
+            key_facts.append(f"URL: {item.get('url', 'N/A')}")
+            # key_facts.append(f"Content summary: {item.get('content', '')[:100]}...")
+            key_facts.append(f"Content summary: {item.get('content', '')}...")
+            key_facts.append(f"Score: {item.get('score', 'N/A')}")
+        key_facts.append("These are the Top 3 results")
+
+        output = {
+            "summary": summary,
+            "key_facts": key_facts,
+            "full_company_info": response
+        }
+
         logger = get_logger("get_uk_company_info")
-        logger.info(f"UK company info for '{enhanced_query}': {response}\n")
-        return response
+        logger.info(f"Structured UK company info for '{enhanced_query}': Summary - {summary}\n")
+        return output
 
     except Exception as e:
         raise ToolError(f"UK company info retrieval failed: {str(e)}")

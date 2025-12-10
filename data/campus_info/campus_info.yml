@@ -12,21 +12,12 @@ flows:
         description: >
           The student's academic question or concern about university matters
           (e.g. exams, grading, enrollment, deadlines, or available support services).
-        next: acknowledge_question
-
-      - id: acknowledge_question
-        action: utter_acknowledge_user_question
         next: trigger_search
 
       - id: trigger_search
         action: action_trigger_search
         # next: propose_next_step
         next: collect_followup_preference
-
-      # # Bot proposes next step in a natural way, no explicit menu yet
-      # - id: propose_next_step
-      #   action: utter_propose_next_step
-      #   next: collect_followup_preference
 
       # Here we still collect a structured choice, but the *utterance* is conversational
       - id: collect_followup_preference
@@ -36,10 +27,10 @@ flows:
           'new_question' to keep chatting, 'handoff' to get contact details
           for a relevant university office or person, or 'done' to end.
         next:
-          - if: slots.followup_choice == "new_question"
+          - if: slots.followup_choice = "new_question"
             then: collect_user_question
 
-          - if: slots.followup_choice == "handoff"
+          - if: slots.followup_choice = "handoff"
             then: suggest_contacts
 
           - else: goodbye_entry

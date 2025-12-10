@@ -15,3 +15,6 @@ actions\__pycache__/*
 .rasa-env/*
 .mcp-env
 .mcp-env/*
+
+tests/*.ipynb
+tests/*.py
