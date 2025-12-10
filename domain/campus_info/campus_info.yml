@@ -20,10 +20,6 @@ responses:
       metadata:
         rephrase: True
 
-  utter_acknowledge_user_question:
-    - text: >
-        Got it, thanks for explaining that. Let me check what applies in your case.
-
   # utter_propose_next_step:
   utter_ask_followup_choice:
     - text: >
