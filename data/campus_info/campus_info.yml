@@ -12,6 +12,7 @@ flows:
         description: >
           The student's academic question or concern about university matters
           (e.g. exams, grading, enrollment, deadlines, or available support services).
+        utter: utter_ask_user_question
         next: trigger_search
 
       - id: trigger_search
@@ -26,6 +27,7 @@ flows:
           The student's preference after receiving an answer:
           'new_question' to keep chatting, 'handoff' to get contact details
           for a relevant university office or person, or 'done' to end.
+        utter: utter_ask_followup_choice
         next:
           - if: slots.followup_choice = "new_question"
             then: collect_user_question
@@ -53,5 +55,6 @@ flows:
       When the main academic search cannot fully answer the student’s question,
       use a specialized retrieval agent to look deeper into university data
       and then explain the result in simple, student‑friendly language.
+    
     steps:
       - call: info_retrieval_agent

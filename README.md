@@ -1,113 +1,174 @@
 # Student Support AI-Assistant
 
-A lightweight AI assistant template designed to handle career guidance, general support, and school-related assistance.
+A modern, lightweight AI assistant designed to provide career guidance, general support, and school-related assistance. This project leverages **Rasa Pro** with CALM (Conversational ALM), an **MCP (Model Context Protocol)** server for real-time web search, and a **Streamlit** user interface.
 
 ---
 
-## 🚀 What's Included
+## 🚀 Features
 
-This project provides a versatile assistant with:
-- **Career Support**: Advice, job search tips, and internship guidance
-- **General Conversations**: Greetings, feedback collection, human handoff, and fallback handling
-- **School Support**: Assistance related to academic and IT support topics
-- **Knowledge Base**: FAQs, policies, and guides to help users with common questions
-- **Custom Actions**: Extendable Python logic to handle complex tasks
+-   **Career Support**: Real-time job market trends, salary data, and career path advice using Tavily search.
+-   **Campus Support**: RAG-based answers for university-specific queries (e.g., University of Wolverhampton).
+-   **General Conversations**: Handle greetings, chit-chat, and fallback scenarios gracefully.
+-   **Modern Stack**: Built with Rasa Pro 3.14+, Gemini/Mistral LLMs, and Model Context Protocol (MCP).
 
 ---
 
 ## 📁 Directory Structure
 
-├── actions/      # Custom Python logic for assistant operations
-├── data/         # Conversation flows and training data
-├── domain/       # Agent configuration (slots, responses, actions)
-├── docs/         # Knowledge base documents and FAQs
-├── models/       # Trained models for the assistant
-├── prompts/      # LLM prompts for enhanced, contextual responses
-├── tests/        # Automated tests and validation scenarios
-├── za others/    # Notebooks for testing
-├── config.yml    # Training pipeline and project configuration
-├── credentials.yml     # Credentials for APIs and external services
-├── endpoints.yml       # Endpoint definitions for custom actions and services
-├── requirements.txt    # Python dependencies list
-
----
- 
-## Requirements:
-- python 3.11
-- IDE (VS Code, Pycharm, etc)
-- uv package installer
-- Mistralai API key
-- Gemini API keys
-
----
-
-## Setup Environment
-
-#### 1. Install uv package installer
-- **Windows:** 
-```pwershell
-  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```text
+├── actions/            # Custom Python actions for Rasa
+├── chat_ui/            # Streamlit-based chat interface
+│   └── my_app_2.py     # Main UI application
+├── data/               # Rasa training data (flows, NLU, rules)
+├── docs/               # RAG knowledge base documents
+├── domain/             # Rasa domain configuration
+├── mcp-server/         # MCP Server for external tools (Search, etc.)
+│   ├── main_1.py       # Main entry point for MCP server
+│   └── pyproject.toml  # MCP server dependencies
+├── tests/              # End-to-end tests
+├── config.yml          # Rasa pipeline & policy config
+├── endpoints.yml       # Endpoint definitions (MCP, Action Server, LLMs)
+└── requirements.txt    # Project Desktop/client dependencies
 ```
-- **Linux or MacOS:** 
-```bash 
+
+---
+
+## 🛠️ Prerequisites
+
+Before you begin, ensure you have the following:
+
+-   **Python 3.12** (Required for Rasa Pro compatibility)
+-   **uv** (Recommended package manager)
+-   **Rasa Pro License** (Required for using Rasa Pro features)
+-   **API Keys**:
+    -   Mistral AI (for RAG/Embeddings)
+    -   Gemini (for Command Generation/LLM)
+    -   Tavily (for Search Tools)
+
+---
+
+## 📦 Installation
+
+### 1. Install `uv`
+**Windows (PowerShell):**
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+**Linux/macOS:**
+```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-#### 2. Create and activate virtual env
+### 2. Set up the Main Environment
+1.  Clone this repository:
+    ```bash
+    git clone https://github.com/cike-dev/ai-assistant.git
+    cd ai-assistant
+    ```
+2.  Create and activate a virtual environment:
+    ```bash
+    uv venv --python 3.12 .rasa-env
+    # Windows
+    .\.rasa-env\Scripts\activate
+    # Linux/macOS
+    source .rasa-env/bin/activate
+    ```
+3.  Install dependencies:
+    ```bash
+    uv pip install -r requirements.txt
+    ```
+
+### 3. Set up the MCP Server Environment
+The MCP server runs in its own environment to avoid conflict:
 ```bash
-  mkdir my-rasa-assistant  
-  cd my-rasa-assistant  
-  uv venv --python 3.11 .rasa-env
-``` 
-
-**Activate:**  
-- Windows: `.\.rasa-env\Scripts\activate`
-- Linux or Mac: `source .rasa-env/bin/activate`
-
-#### 3. Clone this repo
-`git clone https://github.com/cike-dev/ai-assistant.git`  
-`cd ai-assistant`
-
-#### 4. Install requirements
-`uv pip install -r requirements.txt`
-
-**Set RASA_LICENSE Key**  
-obtain license key: https://rasa.com/rasa-pro-developer-edition-license-key-request/   
-For access to Rasa-pro developers edition
-
-Method 1:  
-- Create a .env file
-- Edit the file and save your rasa license key like this:  
-    `RASA_LICENSE="YOUR_LICENSE_KEY"`  
-
-**Method 2:**  
-Run this command:  
-- Windows (powershell):  
-      `[Environment]::SetEnvironmentVariable("RASA_LICENSE", "YOUR_LICENSE_KEY", "User")`  
-
-- Linux or macOS:  
-      `export RASA_LICENSE="YOUR_LICENSE_KEY"`  
-
-**Confirm:**  
-`rasa --version`  
-
-#### 5. More configs for .env file
-set llm health check:  
-`LLM_API_HEALTH_CHECK="True"`  
-
-save your api keys like this:  
-`MISTRAL_API_KEY="YOUR OPENAI API KEY"`  
-`GEMINI_API_KEY="YOUR GEMINI API KEY"`  
+cd mcp-server
+uv sync
+# This reads pyproject.toml and installs dependencies like mcp, tavily-python, fastmcp
+cd ..
+```
 
 ---
 
-## Usage 
-#### 1. Train a Model:
-```sh 
- rasa train --domain domain
+## 🔑 Configuration
+
+### 1. Environment Variables (`.env`)
+Create a `.env` file in the root directory and add your keys:
+
+```ini
+# Rasa License (Required)
+RASA_LICENSE="Your_Rasa_Pro_License_Key"
+
+# LLM Providers
+MISTRAL_API_KEY="Your_Mistral_Key"
+GEMINI_API_KEY="Your_Gemini_Key"
+# If using different keys for specific components as per config.yml:
+GEMINI_PIPELINE="Your_Gemini_Key"
+GEMINI_POLICY="Your_Gemini_Key"
+GEMINI_REPHRASER="Your_Gemini_Key"
+
+# Search Tools
+TAVILY_API_KEY="Your_Tavily_Key"
+
+# Configuration
+LLM_API_HEALTH_CHECK="True"
 ```
 
-#### 2. Inspect: 
-```sh
- rasa inspect
+Also, ensure your `mcp-server/.env` exists if it requires separate loading, though usually, the root `.env` is sufficient if loaded correctly. *Note: The MCP server script `main_1.py` loads `.env` explicitly.*
+
+---
+
+## ▶️ Running the Application
+
+You will need to run **four** separate terminal processes.
+
+### Terminal 1: MCP Server
+This provides the search tools to Rasa.
+```bash
+# Navigate to mcp-server folder
+cd mcp-server
+
+# Run the server (defaults to port 8080)
+python main_1.py
+```
+
+### Terminal 2: Rasa Action Server
+Runs custom actions defined in the `actions/` directory.
+```bash
+# From root directory, with .rasa-env activated
+rasa run actions
+```
+
+### Terminal 3: Rasa Core (Agent)
+Runs the main Rasa server with API enabled.
+```bash
+# From root directory, with .rasa-env activated
+rasa run --enable-api --cors "*" --debug
+```
+
+### Terminal 4: Streamlit UI
+Launches the chat interface.
+```bash
+# From root directory, with .rasa-env activated
+streamlit run chat_ui/my_app_2.py
+```
+
+---
+
+## 🧪 Development & Testing
+
+### Train the Model
+```bash
+rasa train
+```
+
+### Inspector (Debug Mode)
+To inspect the conversation flow and CALM reasoning:
+```bash
+rasa inspect
+```
+
+### End-to-End Testing
+To run the end-to-end tests and generate a coverage report:
+```bash
+rasa test e2e tests --coverage-report --coverage-output-path coverage_reports
 ```

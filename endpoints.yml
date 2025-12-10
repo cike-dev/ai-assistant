@@ -119,14 +119,14 @@ model_groups:
     models:
       - provider: mistral
         model: mistral-small-latest
-        api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
+        api_key: ${MISTRAL_LLM} # Optional, if you want to set the API key in the model configuration.
     
   
   - id: mistral_rag
     models:
       - provider: mistral
         model: mistral-embed
-        api_key: ${MISTRAL_API_KEY} # Optional, if you want to set the API key in the model configuration.
+        api_key: ${MISTRAL_EMBEDDING} # Optional, if you want to set the API key in the model configuration.
     
 
 # MCP servers for sub-agents

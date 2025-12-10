@@ -1,70 +1,8 @@
 test_cases:
   # ====== Case 1 ====== #
-  # - test_case: uni_academic_support_happy_path_done
-  #   steps:
-  #     - user: "What are the exam retake rules for this semester?"
-  #       assertions:
-  #         - flow_started:
-  #             operator: "any"
-  #             flow_ids:
-  #               - "uni_academic_support"
-  #         - slot_was_set:
-  #             - name: "user_question"
-  #         # Answer should come from Enterprise Search via action_trigger_search
-  #         - action_executed: "action_trigger_search"
-  #         - generative_response_is_relevant:
-  #             threshold: 0.6
-  #         - generative_response_is_grounded:
-  #             threshold: 0.6
-
-  #     - user: "done"
-  #       assertions:
-  #         - slot_was_set:
-  #             - name: "followup_choice"
-  #               value: "done"
-  #         - flow_completed:
-  #             flow_id: "uni_academic_support"              
-
-# test_cases:
-  - test_case: uni_academic_support_main_search_handoff
+  - test_case: uni_academic_support_happy_path_done
     steps:
-      # First user message just starts the flow and triggers the collect step
-      - user: "I need information about the exam retake policy for this semester"
-        assertions:
-          - flow_started:
-              operator: "all"
-              flow_ids:
-                - "uni_academic_support"
-
-      # Now the bot has asked: utter_ask_user_question
-      # The next user message actually fills the user_question slot
       - user: "What are the exam retake rules for this semester?"
-        assertions:
-          - slot_was_set:
-              - name: "user_question"
-          - action_executed: "action_trigger_search"
-          - generative_response_is_relevant:
-              threshold: 0.7
-          - generative_response_is_grounded:
-              threshold: 0.7
-
-      # Student asks for handoff
-      - user: "I want to talk to someone about this"
-        assertions:
-          - slot_was_set:
-              - name: "followup_choice"
-          - action_executed: "action_trigger_search"
-          - bot_uttered:
-              utter_name: "utter_wrap_up_handoff"
-          - flow_completed:
-              operator: "all"
-              flow_ids:
-                - "uni_academic_support"
-
-  # ====== Case 2 ====== #
-  - test_case: uni_academic_support_handoff_path
-    steps:
-      - user: "Who can I contact about financial aid appeals?"
         assertions:
           - flow_started:
               operator: "any"
@@ -73,6 +11,30 @@ test_cases:
           - slot_was_set:
               - name: "user_question"
           - action_executed: "action_trigger_search"
+          - generative_response_is_relevant:
+              threshold: 0.6
+          - generative_response_is_grounded:
+              threshold: 0.6
+
+      - user: "done"
+        assertions:
+          - slot_was_set:
+              - name: "followup_choice"
+                value: "done"
+          - flow_completed:
+              flow_id: "uni_academic_support"              
+
+
+  # ====== Case 2 ====== #
+  - test_case: uni_academic_support_handoff_path
+    steps:
+      - user: "Who can I contact about financial aid appeals?"
+        assertions:
+          - flow_started: "uni_academic_support"
+          - slot_was_set:
+              - name: "user_question"
+          - action_executed: "action_trigger_search"
+              # name: "action_trigger_search"
           - generative_response_is_relevant:
               threshold: 0.6
           - generative_response_is_grounded:
@@ -85,6 +47,7 @@ test_cases:
                 value: "handoff"
           # second search for contact info
           - action_executed: "action_trigger_search"
+              # name: "action_trigger_search"
           # your wrap-up utterance after suggest_contacts
           - bot_uttered:
               utter_name: "utter_wrap_up_handoff"
@@ -96,13 +59,11 @@ test_cases:
     steps:
       - user: "How do I register for summer courses?"
         assertions:
-          - flow_started:
-              operator: "any"
-              flow_ids:
-                - "uni_academic_support"
+          - flow_started: "uni_academic_support"
           - slot_was_set:
               - name: "user_question"
           - action_executed: "action_trigger_search"
+              # name: "action_trigger_search"
           - generative_response_is_relevant:
               threshold: 0.6
 
@@ -120,6 +81,7 @@ test_cases:
           - slot_was_set:
               - name: "user_question"
           - action_executed: "action_trigger_search"
+              # name: "action_trigger_search"
           - generative_response_is_relevant:
               threshold: 0.6
           - flow_completed:
@@ -130,10 +92,7 @@ test_cases:
     steps:
       - user: "I can't find the updated grading scale for the new AI track."
         assertions:
-          - flow_started:
-              operator: "any"
-              flow_ids:
-                - "specialized_search_flow"
+          - flow_started: "specialized_search_flow"
           # The sub-agent should now run and respond
           - bot_uttered:
               text_matches: "Here is the updated grading scale"

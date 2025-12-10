@@ -6,7 +6,10 @@ models
 models/*
 notebook_tests/*
 e2e_coverage_results/*
-actions\__pycache__/*
+actions/__pycache__/*
+mcp-server/__pycache__
+
+
 
 .env
 .venv
